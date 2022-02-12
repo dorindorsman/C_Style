@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activities.MainUserActivity"
+    android:background="@color/style2">
+
+    <com.google.android.material.bottomappbar.BottomAppBar
+        android:id="@+id/panel_bottomAppBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="@color/white"
+        app:fabCradleMargin="10dp"
+        app:fabCradleRoundedCornerRadius="50dp" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/panel_BottomNavigationView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:menu="@menu/bottom_menu"
+        android:background="@android:color/transparent"
+        android:layout_marginEnd="20dp"
+        android:layout_gravity="bottom"
+        app:labelVisibilityMode="labeled"
+        />
+
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/white"
+        android:src="@drawable/ic_add"
+        app:borderWidth="0dp"
+        app:layout_anchor="@id/panel_bottomAppBar"
+        app:maxImageSize="50dp" />
+
+
+
+
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

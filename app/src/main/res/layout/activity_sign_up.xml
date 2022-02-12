@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activities.SignUpActivity"
+    android:padding="20dp"
+    android:background="@color/style2">
+
+
+    <ImageView
+        android:id="@+id/panel_IMG_Signup"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_centerInParent="true"
+        android:layout_alignParentTop="true"
+        android:src="@drawable/img_icon_cstyle_brown" />
+
+
+    <TextView
+        android:id="@+id/panel_LBL_SignUp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/panel_IMG_Signup"
+        android:layout_marginTop="-10dp"
+        android:textStyle="bold"
+        android:text="SIGN UP"
+        android:fontFamily="@font/abeezee"
+        android:textColor="@color/style4"
+        android:textSize="40sp"
+         />
+
+    <TextView
+        android:id="@+id/panel_LBL_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/panel_LBL_SignUp"
+        android:text="SignUp to start organize your closet"
+        android:textColor="@color/style4"
+        android:fontFamily="@font/abeezee"
+        android:textSize="18sp"
+        />
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_below="@+id/panel_LBL_txt"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="20dp">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/panel_BTN_User_Image"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:layout_below="@+id/panel_LBL_txt"
+            app:civ_border_width="3dp"
+            app:civ_border_color="@color/style4"
+            android:src="@android:drawable/ic_menu_gallery">
+        </de.hdodenhof.circleimageview.CircleImageView>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:id="@+id/panel_LBL_User_First_Name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/panel_BTN_User_Image"
+            android:layout_marginTop="32dp"
+            android:hint="First Name"
+            android:fontFamily="@font/abeezee"
+            android:textColorHint="@color/style4"
+            app:helperText="Required*"
+            app:counterEnabled="true"
+            app:counterMaxLength="20"
+            app:hintTextColor="@color/white"
+            app:helperTextTextColor="@color/red"
+            app:boxStrokeColor="@color/style4"
+            app:boxStrokeWidth="2dp"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxLength="20"
+                android:fontFamily="@font/abeezee"
+                android:outlineAmbientShadowColor="@color/white"
+                android:shadowColor="@color/white"
+                android:textColor="@color/style4"
+                android:ems="30"
+                android:imeOptions="actionDone" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:id="@+id/panel_LBL_User_Last_Name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/panel_LBL_User_First_Name"
+            android:layout_marginTop="32dp"
+            android:hint="Last Name"
+            android:fontFamily="@font/abeezee"
+            android:textColorHint="@color/style4"
+            app:helperText="Required*"
+            app:counterEnabled="true"
+            app:counterMaxLength="20"
+            app:hintTextColor="@color/white"
+            app:helperTextTextColor="@color/red"
+            app:boxStrokeColor="@color/style4"
+            app:boxStrokeWidth="2dp"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxLength="20"
+                android:outlineAmbientShadowColor="@color/white"
+                android:fontFamily="@font/abeezee"
+                android:shadowColor="@color/white"
+                android:textColor="@color/style4"
+                android:ems="30"
+                android:imeOptions="actionDone" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/panel_BTN_SignUp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/panel_LBL_User_Last_Name"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="50dp"
+            android:backgroundTint="@color/style4"
+            android:scaleType="fitCenter"
+            android:singleLine="true"
+            android:text="Sign UP"
+            android:fontFamily="@font/abeezee"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:strokeColor="@color/style4"
+            app:strokeWidth="3dp"
+            tools:ignore="OnClick"
+            android:onClick="getName"
+            />
+
+    </LinearLayout>
+
+
+
+
+
+
+
+
+</RelativeLayout>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activities.LoginActivity"
+    android:padding="20dp"
+    android:background="@color/style2">
+
+
+    <LinearLayout
+        android:id="@+id/panel_Login_Layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/panel_LBL_welcome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:fontFamily="@font/abeezee"
+            android:text="WELCOME"
+            android:textColor="@color/style4"
+            android:textSize="60sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/panel_IMG_login"
+            android:layout_width="400dp"
+            android:layout_height="400dp"
+            android:layout_below="@id/panel_LBL_welcome"
+            android:src="@drawable/img_icon_cstyle_white_remove" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/panel_BTN_Start"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/panel_IMG_login"
+            android:backgroundTint="@color/style4"
+            android:scaleType="fitCenter"
+            android:singleLine="true"
+            android:text="LOG IN"
+            android:fontFamily="@font/abeezee"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:strokeColor="@color/style4"
+            app:strokeWidth="3dp"
+            tools:ignore="OnClick"
+            android:onClick="getName"
+            />
+
+
+    </LinearLayout>
+
+
+
+
+
+</RelativeLayout>

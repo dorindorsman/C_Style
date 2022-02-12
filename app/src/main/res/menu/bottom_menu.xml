@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <item
+        android:id="@+id/closest"
+        android:title="CLOSET"
+        app:showAsAction="ifRoom"
+        android:icon="@drawable/ic_hanger"/>
+
+    <item
+        android:id="@+id/favorites"
+        android:title="FAVORITES"
+        app:showAsAction="ifRoom"
+        android:icon="@drawable/ic_favorite"/>
+
+
+    <item
+        android:id="@+id/holder"
+        android:title=""
+        app:showAsAction="ifRoom"
+       />
+
+    <item
+        android:id="@+id/calender"
+        android:title="CALENDER"
+        app:showAsAction="ifRoom"
+        android:icon="@drawable/ic_calendar"/>
+
+    <item
+        android:id="@+id/outfits"
+        android:title="OUTFITS"
+        app:showAsAction="ifRoom"
+        android:icon="@drawable/ic_outfit"/>
+
+
+</menu>

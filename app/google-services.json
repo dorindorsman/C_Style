@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "708027870435",
+    "project_id": "c-style-e408e",
+    "storage_bucket": "c-style-e408e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:708027870435:android:0403a0d418e50ecd7d69d6",
+        "android_client_info": {
+          "package_name": "com.dorin.c_style"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "708027870435-sa0mgoghscqfq6t3i7i2vlpms2ssr8pc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDjyVQKGkRUqjO29PmXSXR3rjZNqbmFrog"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "708027870435-sa0mgoghscqfq6t3i7i2vlpms2ssr8pc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
