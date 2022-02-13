@@ -18,9 +18,9 @@ public class SplashActivity extends AppCompatActivity {
 
     private static int SPLASH_TIME_OUT=5000;
 
-    ImageView panel_img_icon;
-    TextView panel_LBL_icon;
-    TextView panel_LBL_android;
+    ImageView panel_IMG_Icon;
+    TextView panel_LBL_Icon;
+    TextView panel_LBL_Android;
 
 
     //Animations
@@ -56,14 +56,14 @@ public class SplashActivity extends AppCompatActivity {
     }
 
     private void initAnimation() {
-        panel_img_icon.setAnimation(topAnimation);
-        panel_LBL_icon.setAnimation(middleAnimation);
-        panel_LBL_android.setAnimation(bottomAnimation);
+        panel_IMG_Icon.setAnimation(topAnimation);
+        panel_LBL_Icon.setAnimation(middleAnimation);
+        panel_LBL_Android.setAnimation(bottomAnimation);
     }
 
     private void findViews() {
-        panel_img_icon=findViewById(R.id.panel_img_icon);
-        panel_LBL_icon=findViewById(R.id.panel_LBL_icon);
-        panel_LBL_android=findViewById(R.id.panel_LBL_android);
+        panel_IMG_Icon=findViewById(R.id.panel_IMG_Icon);
+        panel_LBL_Icon=findViewById(R.id.panel_LBL_Icon);
+        panel_LBL_Android=findViewById(R.id.panel_LBL_Android);
     }
 }

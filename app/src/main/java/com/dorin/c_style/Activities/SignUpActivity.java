@@ -18,7 +18,7 @@ public class SignUpActivity extends AppCompatActivity {
 
     ImageView panel_IMG_Signup;
     TextView panel_LBL_SignUp;
-    TextView panel_LBL_txt;
+    TextView panel_LBL_Txt;
     CircleImageView panel_BTN_User_Image;
     TextInputLayout panel_LBL_User_First_Name;
     TextInputLayout panel_LBL_User_Last_Name;
@@ -61,7 +61,7 @@ public class SignUpActivity extends AppCompatActivity {
     private void findViews() {
         panel_IMG_Signup=findViewById(R.id.panel_IMG_Signup);
         panel_LBL_SignUp=findViewById(R.id.panel_LBL_SignUp);
-        panel_LBL_txt=findViewById(R.id.panel_LBL_txt);
+        panel_LBL_Txt=findViewById(R.id.panel_LBL_Txt);
         panel_BTN_User_Image=findViewById(R.id.panel_BTN_User_Image);
         panel_LBL_User_First_Name=findViewById(R.id.panel_LBL_User_First_Name);
         panel_LBL_User_Last_Name=findViewById(R.id.panel_LBL_User_Last_Name);

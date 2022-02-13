@@ -19,7 +19,7 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/panel_LBL_welcome"
+            android:id="@+id/panel_LBL_Welcome"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
@@ -30,10 +30,10 @@
             android:textStyle="bold" />
 
         <ImageView
-            android:id="@+id/panel_IMG_login"
+            android:id="@+id/panel_IMG_Login"
             android:layout_width="400dp"
             android:layout_height="400dp"
-            android:layout_below="@id/panel_LBL_welcome"
+            android:layout_below="@id/panel_LBL_Welcome"
             android:src="@drawable/img_icon_cstyle_white_remove" />
 
         <com.google.android.material.button.MaterialButton
