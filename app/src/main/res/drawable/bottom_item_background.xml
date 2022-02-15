@@ -7,7 +7,7 @@
 
     <item
         android:color="@color/style4"
-       />
+        android:state_checked="false" />
 
 
 </selector>

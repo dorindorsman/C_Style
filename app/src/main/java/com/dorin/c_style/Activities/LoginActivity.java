@@ -20,7 +20,7 @@ import java.util.List;
 
 public class LoginActivity extends AppCompatActivity {
 
-    MaterialButton panel_BTN_Start;
+    MaterialButton login_BTN_Start;
 
     // Choose authentication providers
     List<AuthUI.IdpConfig> providers = Arrays.asList(
@@ -39,7 +39,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private void initButton() {
 
-        panel_BTN_Start.setOnClickListener(new View.OnClickListener() {
+        login_BTN_Start.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // Create and launch sign-in intent
@@ -54,7 +54,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void findviews() {
-        panel_BTN_Start=findViewById(R.id.panel_BTN_Start);
+        login_BTN_Start=findViewById(R.id.login_BTN_Start);
     }
 
 

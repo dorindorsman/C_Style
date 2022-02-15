@@ -5,11 +5,13 @@
       <map>
         <entry key="..\:/Users/Dorin/AndroidStudioProjects/C_Style/app/src/main/res/drawable-v24/ic_launcher_background.xml" value="0.1648148148148148" />
         <entry key="..\:/Users/Dorin/AndroidStudioProjects/C_Style/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.15208333333333332" />
+        <entry key="..\:/Users/Dorin/AndroidStudioProjects/C_Style/app/src/main/res/drawable/bottom_item_background.xml" value="0.1865" />
         <entry key="..\:/Users/Dorin/AndroidStudioProjects/C_Style/app/src/main/res/drawable/ic__save.xml" value="0.32395833333333335" />
         <entry key="..\:/Users/Dorin/AndroidStudioProjects/C_Style/app/src/main/res/drawable/ic_account.xml" value="0.32395833333333335" />
         <entry key="..\:/Users/Dorin/AndroidStudioProjects/C_Style/app/src/main/res/drawable/ic_add.xml" value="0.38333333333333336" />
         <entry key="..\:/Users/Dorin/AndroidStudioProjects/C_Style/app/src/main/res/drawable/ic_baseline_person_24.xml" value="0.221875" />
         <entry key="..\:/Users/Dorin/AndroidStudioProjects/C_Style/app/src/main/res/drawable/ic_calendar.xml" value="0.32395833333333335" />
+        <entry key="..\:/Users/Dorin/AndroidStudioProjects/C_Style/app/src/main/res/drawable/ic_circle_color.xml" value="0.1865" />
         <entry key="..\:/Users/Dorin/AndroidStudioProjects/C_Style/app/src/main/res/drawable/ic_exit.xml" value="0.32395833333333335" />
         <entry key="..\:/Users/Dorin/AndroidStudioProjects/C_Style/app/src/main/res/drawable/ic_favorite.xml" value="0.32395833333333335" />
         <entry key="..\:/Users/Dorin/AndroidStudioProjects/C_Style/app/src/main/res/drawable/ic_favorite_border.xml" value="0.32395833333333335" />
@@ -20,23 +22,38 @@
         <entry key="..\:/Users/Dorin/AndroidStudioProjects/C_Style/app/src/main/res/drawable/ic_launcher_background.xml" value="0.15208333333333332" />
         <entry key="..\:/Users/Dorin/AndroidStudioProjects/C_Style/app/src/main/res/drawable/ic_launcher_foreground.xml" value="0.15208333333333332" />
         <entry key="..\:/Users/Dorin/AndroidStudioProjects/C_Style/app/src/main/res/drawable/ic_menu.xml" value="0.32395833333333335" />
+        <entry key="..\:/Users/Dorin/AndroidStudioProjects/C_Style/app/src/main/res/drawable/ic_notifications.xml" value="0.29739583333333336" />
         <entry key="..\:/Users/Dorin/AndroidStudioProjects/C_Style/app/src/main/res/drawable/ic_outfit.xml" value="0.32395833333333335" />
+        <entry key="..\:/Users/Dorin/AndroidStudioProjects/C_Style/app/src/main/res/drawable/ic_person.xml" value="0.29739583333333336" />
         <entry key="..\:/Users/Dorin/AndroidStudioProjects/C_Style/app/src/main/res/drawable/ic_power.xml" value="0.32395833333333335" />
         <entry key="..\:/Users/Dorin/AndroidStudioProjects/C_Style/app/src/main/res/drawable/ic_setting.xml" value="0.32395833333333335" />
+        <entry key="..\:/Users/Dorin/AndroidStudioProjects/C_Style/app/src/main/res/drawable/ic_settings.xml" value="0.29739583333333336" />
+        <entry key="..\:/Users/Dorin/AndroidStudioProjects/C_Style/app/src/main/res/drawable/rounded_alpha.xml" value="0.1865" />
         <entry key="..\:/Users/Dorin/AndroidStudioProjects/C_Style/app/src/main/res/layout/activity_login.xml" value="0.3333333333333333" />
         <entry key="..\:/Users/Dorin/AndroidStudioProjects/C_Style/app/src/main/res/layout/activity_main.xml" value="0.12447916666666667" />
         <entry key="..\:/Users/Dorin/AndroidStudioProjects/C_Style/app/src/main/res/layout/activity_main_user.xml" value="0.22" />
+        <entry key="..\:/Users/Dorin/AndroidStudioProjects/C_Style/app/src/main/res/layout/activity_new_item.xml" value="0.27708333333333335" />
         <entry key="..\:/Users/Dorin/AndroidStudioProjects/C_Style/app/src/main/res/layout/activity_new_user.xml" value="0.3671875" />
         <entry key="..\:/Users/Dorin/AndroidStudioProjects/C_Style/app/src/main/res/layout/activity_sign_in.xml" value="0.3333333333333333" />
-        <entry key="..\:/Users/Dorin/AndroidStudioProjects/C_Style/app/src/main/res/layout/activity_sign_up.xml" value="0.5" />
+        <entry key="..\:/Users/Dorin/AndroidStudioProjects/C_Style/app/src/main/res/layout/activity_sign_up.xml" value="0.3333333333333333" />
         <entry key="..\:/Users/Dorin/AndroidStudioProjects/C_Style/app/src/main/res/layout/activity_splash.xml" value="0.3067708333333333" />
+        <entry key="..\:/Users/Dorin/AndroidStudioProjects/C_Style/app/src/main/res/layout/dialogbox_category.xml" value="0.3671875" />
+        <entry key="..\:/Users/Dorin/AndroidStudioProjects/C_Style/app/src/main/res/layout/dialogbox_color_picker.xml" value="0.22" />
+        <entry key="..\:/Users/Dorin/AndroidStudioProjects/C_Style/app/src/main/res/layout/dialogbox_workplaces.xml" value="0.1796875" />
         <entry key="..\:/Users/Dorin/AndroidStudioProjects/C_Style/app/src/main/res/layout/fragment_.xml" value="0.2234375" />
+        <entry key="..\:/Users/Dorin/AndroidStudioProjects/C_Style/app/src/main/res/layout/fragment_calender.xml" value="0.2234375" />
+        <entry key="..\:/Users/Dorin/AndroidStudioProjects/C_Style/app/src/main/res/layout/fragment_closet.xml" value="0.3671875" />
+        <entry key="..\:/Users/Dorin/AndroidStudioProjects/C_Style/app/src/main/res/layout/fragment_new_item.xml" value="0.3333333333333333" />
+        <entry key="..\:/Users/Dorin/AndroidStudioProjects/C_Style/app/src/main/res/layout/fragment_profile.xml" value="0.28125" />
         <entry key="..\:/Users/Dorin/AndroidStudioProjects/C_Style/app/src/main/res/layout/layout_navigation_header.xml" value="0.2234375" />
+        <entry key="..\:/Users/Dorin/AndroidStudioProjects/C_Style/app/src/main/res/layout/list_panel.xml" value="0.3671875" />
+        <entry key="..\:/Users/Dorin/AndroidStudioProjects/C_Style/app/src/main/res/layout/list_workplace.xml" value="0.1796875" />
         <entry key="..\:/Users/Dorin/AndroidStudioProjects/C_Style/app/src/main/res/menu/bottom_item_background.xml" value="0.2234375" />
         <entry key="..\:/Users/Dorin/AndroidStudioProjects/C_Style/app/src/main/res/menu/bottom_menu.xml" value="0.3671875" />
         <entry key="..\:/Users/Dorin/AndroidStudioProjects/C_Style/app/src/main/res/menu/top_menu.xml" value="0.2234375" />
         <entry key="..\:/Users/Dorin/AndroidStudioProjects/C_Style/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1" />
         <entry key="..\:/Users/Dorin/AndroidStudioProjects/C_Style/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.1" />
+        <entry key="..\:/Users/Dorin/AndroidStudioProjects/C_Style/app/src/main/res/xml/root_preferences.xml" value="0.3671875" />
       </map>
     </option>
   </component>

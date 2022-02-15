@@ -1,16 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+     >
+
+    <group android:checkableBehavior="single">
 
 
     <item
         android:id="@+id/menuProfile"
         android:icon="@drawable/ic_person"
+        android:iconTint="@drawable/bottom_item_background"
         android:title="@string/profile"
         />
 
     <item
         android:id="@+id/menuNotifications"
         android:title="@string/notifications"
+        android:iconTint="@drawable/bottom_item_background"
         android:icon="@drawable/ic_notifications"
         />
 
@@ -18,23 +23,18 @@
     <item
         android:id="@+id/Settings"
         android:title="@string/setting"
+        android:iconTint="@drawable/bottom_item_background"
         android:icon="@drawable/ic_settings"/>
 
 
     <item
         android:id="@+id/Logout"
         android:title="@string/logout"
+        android:iconTint="@drawable/bottom_item_background"
         android:icon="@drawable/ic_exit"
         />
 
 
-
-
-
-
-
-
-
-
+    </group>
 
 </menu>

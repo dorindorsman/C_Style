@@ -1,19 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.drawerlayout.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/panel_DrawerLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Activities.MainUserActivity"
     android:background="@color/style2">
 
-    <androidx.drawerlayout.widget.DrawerLayout
-        android:id="@+id/panel_DrawerLayout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/panel_Menu"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/panel_Top_Menu"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -37,7 +42,7 @@
                 app:tint="@color/style4"/>
 
             <TextView
-                android:id="@+id/panel_textTitle"
+                android:id="@+id/panel_TextTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="15dp"
@@ -49,39 +54,20 @@
 
         </LinearLayout>
 
-        <fragment
-            android:id="@+id/panel_Fragment"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            app:layout_constraintTop_toBottomOf="@+id/panel_TopAppBar"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_marginBottom="18dp"
-            />
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <com.google.android.material.navigation.NavigationView
-        android:id="@+id/panel_TopNavigationView"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        app:headerLayout="@layout/layout_navigation_header"
-        app:menu="@menu/top_menu"
-        app:itemIconTint="@color/bottom_item_background"
-        app:itemTextColor="@color/bottom_item_background"
-        android:layout_gravity="start">
-
-    </com.google.android.material.navigation.NavigationView>
-
-    </androidx.drawerlayout.widget.DrawerLayout>
 
 
 
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/panel_Fragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="?attr/actionBarSize"
+            android:clipToPadding="false"
+            />
 
 
-    <androidx.coordinatorlayout.widget.CoordinatorLayout
-        android:id="@+id/panel_BottomMenu"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
 
 
         <com.google.android.material.bottomappbar.BottomAppBar
@@ -99,13 +85,14 @@
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
             android:background="@android:color/transparent"
-            app:itemIconTint="@color/bottom_item_background"
-            app:itemTextColor="@color/bottom_item_background"
+            app:itemIconTint="@drawable/bottom_item_background"
+            app:itemTextColor="@drawable/bottom_item_background"
             app:labelVisibilityMode="labeled"
             app:menu="@menu/bottom_menu" />
 
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/panel_BTN_AddItem"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/white"
@@ -119,7 +106,17 @@
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
 
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/panel_TopNavigationView"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        app:headerLayout="@layout/layout_navigation_header"
+        app:menu="@menu/top_menu"
+        app:itemIconTint="@drawable/bottom_item_background"
+        app:itemBackground="@color/fui_transparent"
+        app:itemTextColor="@drawable/bottom_item_background"
+        android:layout_gravity="start">
 
+    </com.google.android.material.navigation.NavigationView>
 
-
-</RelativeLayout>
+</androidx.drawerlayout.widget.DrawerLayout>
