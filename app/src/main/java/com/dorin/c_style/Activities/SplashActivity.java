@@ -11,7 +11,9 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.dorin.c_style.Firebase.FirebaseDB;
 import com.dorin.c_style.R;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class SplashActivity extends AppCompatActivity {
 
@@ -38,6 +40,8 @@ public class SplashActivity extends AppCompatActivity {
         bottomAnimation= AnimationUtils.loadAnimation(this,R.anim.bottom_animation);
         middleAnimation= AnimationUtils.loadAnimation(this,R.anim.middle_animation);
 
+        FirebaseDB firebaseDB = FirebaseDB.getInstance();
+        firebaseDB.setCallback_checkUserExistence(callback_checkUserExistence);
         findViews();
         initAnimation();
 
@@ -45,11 +49,16 @@ public class SplashActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent intent = new Intent(SplashActivity.this, MainUserActivity.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
-                startActivity(intent);
-                finish();
-
+                FirebaseAuth firebaseAuth=FirebaseAuth.getInstance();
+                FirebaseDB firebaseDB=FirebaseDB.getInstance();
+                if(firebaseAuth.getCurrentUser() != null){
+                    firebaseDB.hasProfile(firebaseAuth.getCurrentUser().getUid());
+                }else{
+                    Intent intent = new Intent(SplashActivity.this, LoginActivity.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                    startActivity(intent);
+                    finish();
+                }
             }
         },SPLASH_TIME_OUT);
 
@@ -66,4 +75,23 @@ public class SplashActivity extends AppCompatActivity {
         panel_LBL_Icon=findViewById(R.id.panel_LBL_Icon);
         panel_LBL_Android=findViewById(R.id.panel_LBL_Android);
     }
+
+    private void openActivity(Class activity) {
+        Intent intent = new Intent(this, activity);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+        startActivity(intent);
+        finish();
+    }
+
+    FirebaseDB.Callback_checkUserExistence callback_checkUserExistence = new FirebaseDB.Callback_checkUserExistence() {
+        @Override
+        public void profileExist() {
+            openActivity(MainUserActivity.class);
+        }
+
+        @Override
+        public void makeProfile() {
+            openActivity(SignUpActivity.class);
+        }
+    };
 }

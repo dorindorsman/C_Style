@@ -8,12 +8,15 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import com.dorin.c_style.Firebase.FirebaseDB;
 import com.dorin.c_style.R;
 import com.firebase.ui.auth.AuthUI;
 import com.firebase.ui.auth.FirebaseAuthUIActivityResultContract;
 import com.firebase.ui.auth.IdpResponse;
 import com.firebase.ui.auth.data.model.FirebaseAuthUIAuthenticationResult;
 import com.google.android.material.button.MaterialButton;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import java.util.Arrays;
 import java.util.List;
@@ -73,14 +76,11 @@ public class LoginActivity extends AppCompatActivity {
         IdpResponse response = result.getIdpResponse();
         if (result.getResultCode() == RESULT_OK) {
             // Successfully signed in
-           // FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
-            Intent intent = new Intent(LoginActivity.this, MainUserActivity.class);
-            intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
-            startActivity(intent);
-            finish();
-
-
+            FirebaseDB firebaseDB = FirebaseDB.getInstance();
+            firebaseDB.setCallback_checkUserExistence(callback_checkUserExistence);
+            firebaseDB.hasProfile(user.getUid());
 
 
 
@@ -94,7 +94,24 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
+    private void openActivity(Class activity) {
+        Intent intent = new Intent(this, activity);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+        startActivity(intent);
+        finish();
+    }
 
+    FirebaseDB.Callback_checkUserExistence callback_checkUserExistence = new FirebaseDB.Callback_checkUserExistence() {
+        @Override
+        public void profileExist() {
+            openActivity(MainUserActivity.class);
+        }
+
+        @Override
+        public void makeProfile() {
+            openActivity(SignUpActivity.class);
+        }
+    };
 
 
 

@@ -36,7 +36,7 @@ public class OutfitsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        View view = LayoutInflater.from(getContext()).inflate(R.layout.fragment_calender, container, false);
+        View view = LayoutInflater.from(getContext()).inflate(R.layout.fragment_outfits, container, false);
 
         findViews(view);
 

@@ -1,34 +1,212 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="5dp"
-    android:elevation="8dp"
-    app:cardBackgroundColor="@color/style2"
     app:cardCornerRadius="20dp"
+    android:elevation="8dp"
     app:cardElevation="8dp"
-    app:strokeColor="@color/style4"
-    app:strokeWidth="1dp">
+    android:layout_margin="10dp">
 
-        <RelativeLayout
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/item_IMG"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_margin="10dp">
+            android:layout_height="250dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_launcher_background" />
 
-                <com.google.android.material.textview.MaterialTextView
-                    android:id="@+id/global_LBL_text"
-                    android:layout_width="wrap_content"
+
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="8dp">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"/>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/item_IMG_favorite"
+                android:layout_marginEnd="10dp"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:padding="3dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_heart_empty" />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+        <LinearLayout
+            android:id="@+id/item_layout_Name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingStart="15dp"
+            android:paddingEnd="15dp"
+            android:gravity="center_vertical">
+
+
+            <MultiAutoCompleteTextView
+                android:id="@+id/item_LBL_Name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/Name"
+                android:textColor="@color/style4"
+                android:fontFamily="@font/abeezee"
+                android:textSize="18dp"
+                android:textStyle="bold"
+                android:layout_marginStart="5dp"
+                />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/item_LBL_NameItem"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/itemName"
+                android:layout_marginStart="25dp"
+                android:fontFamily="@font/abeezee"
+                android:textSize="18dp"
+                android:textColor="@color/style1"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/item_layout_Category"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingStart="15dp"
+            android:paddingEnd="15dp"
+            android:layout_marginTop="20dp"
+            android:gravity="center_vertical">
+
+
+            <MultiAutoCompleteTextView
+                android:id="@+id/item_LBL_Category"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/category"
+                android:textColor="@color/style4"
+                android:fontFamily="@font/abeezee"
+                android:textSize="18dp"
+                android:textStyle="bold"
+                android:layout_marginStart="5dp"
+                />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/item_LBL_CategoryItem"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/itemCategory"
+                android:layout_marginStart="25dp"
+                android:fontFamily="@font/abeezee"
+                android:textSize="18dp"
+                android:textColor="@color/style1"/>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/item_layout_Size"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingStart="15dp"
+            android:paddingEnd="15dp"
+            android:layout_marginTop="20dp"
+            android:gravity="center_vertical">
+
+
+            <MultiAutoCompleteTextView
+                android:id="@+id/item_LBL_Size"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/size"
+                android:textColor="@color/style4"
+                android:fontFamily="@font/abeezee"
+                android:textSize="18dp"
+                android:textStyle="bold"
+                android:layout_marginStart="5dp"
+                />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/item_LBL_SizeItem"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/itemSize"
+                android:layout_marginStart="25dp"
+                android:fontFamily="@font/abeezee"
+                android:textSize="18dp"
+                android:textColor="@color/style1"/>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/item_layout_Color"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingStart="15dp"
+            android:paddingEnd="15dp"
+            android:layout_marginTop="20dp"
+            android:gravity="center_vertical">
+
+
+            <MultiAutoCompleteTextView
+                android:id="@+id/item_LBL_Color"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/Color"
+                android:textColor="@color/style4"
+                android:fontFamily="@font/abeezee"
+                android:textSize="18dp"
+                android:textStyle="bold"
+                android:layout_marginStart="5dp"
+                />
+
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/item_TIL_ColorItem"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:endIconMode="custom"
+                app:endIconDrawable="@drawable/ic_circle_color"
+                >
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/item_TIET_ColorItem"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_centerHorizontal="true"
-                    android:gravity="center"
-                    android:text="the name"
-                    android:textAlignment="center"
-                    android:textColor="@color/style4"
-                    android:textSize="18sp" />
+                    android:focusableInTouchMode="true"
+                    android:cursorVisible="false"
+                    android:focusable="false"
+                    android:inputType="text"
+                    android:backgroundTint="#ffffff"
+                    />
 
-        </RelativeLayout>
+            </com.google.android.material.textfield.TextInputLayout>
 
 
+
+
+        </LinearLayout>
+
+
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
 
 </com.google.android.material.card.MaterialCardView>

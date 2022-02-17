@@ -44,7 +44,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class MainUserActivity extends AppCompatActivity {
 
-      public static final int PROFILE = 0, CLOSET = 1, NEWITEM = 2, OUTFITS=3, FAVORITES=4,CALENDER=5,NOTIFICATIONS=6,SETTINGS=7,LOGOUT=8;
+      public static final int PROFILE = 0, CLOSET = 1, OUTFITS=2, FAVORITES=3,CALENDER=4,NOTIFICATIONS=5,SETTINGS=6,LOGOUT=7;
 
       private DrawerLayout panel_DrawerLayout;
       private CoordinatorLayout panel_Menu;
@@ -67,7 +67,7 @@ public class MainUserActivity extends AppCompatActivity {
 
       private Fragment[] panel_fragments;
 
-      private final int SIZE=9;
+      private final int SIZE=8;
 
 
 
@@ -77,8 +77,11 @@ public class MainUserActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_user);
 
+
+
         findViews();
         setFragments();
+        replaceFragments(panel_fragments[CLOSET]);
         initColorMenu();
         initBtn();
 
@@ -122,7 +125,6 @@ public class MainUserActivity extends AppCompatActivity {
         panel_fragments = new Fragment[SIZE];
         panel_fragments[PROFILE] = new ProfileFragment().setActivity(this);
         panel_fragments[CLOSET] = new ClosetFragment().setActivity(this);
-     //   panel_fragments[NEWITEM] = new NewItemFragment().setActivity(this);
         panel_fragments[OUTFITS] = new OutfitsFragment().setActivity(this);
         panel_fragments[FAVORITES] = new FavoritesFragment().setActivity(this);
         panel_fragments[CALENDER] = new CalenderFragment().setActivity(this);
@@ -186,7 +188,6 @@ public class MainUserActivity extends AppCompatActivity {
         panel_BTN_AddItem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                panel_TextTitle.setText(getString(R.string.additem));
                 startActivity(new Intent(MainUserActivity.this,NewItemActivity.class));
                 //new item
             }

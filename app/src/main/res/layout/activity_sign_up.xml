@@ -64,13 +64,13 @@
             android:layout_below="@+id/panel_LBL_txt"
             app:civ_border_width="3dp"
             app:civ_border_color="@color/style4"
-            android:src="@android:drawable/ic_menu_gallery">
+            android:src="@drawable/ic_account">
         </de.hdodenhof.circleimageview.CircleImageView>
 
 
         <com.google.android.material.textfield.TextInputLayout
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:id="@+id/signUp_LBL_User_First_Name"
+            android:id="@+id/signUp_TIL_User_First_Name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/panel_BTN_User_Image"
@@ -88,6 +88,7 @@
             >
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/signUp_TIET_User_First_Name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:maxLength="10"
@@ -103,7 +104,7 @@
 
         <com.google.android.material.textfield.TextInputLayout
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:id="@+id/signUp_LBL_User_Last_Name"
+            android:id="@+id/signUp_TIL_User_Last_Name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/panel_LBL_User_First_Name"
@@ -121,6 +122,7 @@
             >
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/signUp_TIET_User_Last_Name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:maxLength="10"

@@ -41,7 +41,11 @@ public class NewItemActivity extends AppCompatActivity {
     private TextInputEditText newItem_TIET_Color;
     private TextInputLayout newItem_TIL_Color;
 
-    private MaterialButton panel_BTN_Save;
+    private TextInputEditText newItem_TIET_Favorite;
+    private TextInputLayout newItem_TIL_Favorite;
+
+    private MaterialButton newItem_BTN_Save;
+    private MaterialButton newItem_BTN_Back;
 
     private ArrayList<String> categoryList;
     private ArrayList<String> sizeClothesList;
@@ -49,6 +53,7 @@ public class NewItemActivity extends AppCompatActivity {
     private ArrayList<String> sizeAccList;
     private int categoryPick;
     private String color;
+    private boolean isFavorite=false;
 
     public interface Callback_ViewDialogColorPicker {
         void done(String rgb);
@@ -116,7 +121,10 @@ public class NewItemActivity extends AppCompatActivity {
         newItem_TIET_Size = findViewById(R.id.newItem_TIET_Size);
         newItem_TIET_Color = findViewById(R.id.newItem_TIET_Color);
         newItem_TIL_Color = findViewById(R.id.newItem_TIL_Color);
-        panel_BTN_Save = findViewById(R.id.panel_BTN_Save);
+        newItem_TIET_Favorite = findViewById(R.id.newItem_TIET_Favorite);
+        newItem_TIL_Favorite = findViewById(R.id.newItem_TIL_Favorite);
+        newItem_BTN_Save = findViewById(R.id.newItem_BTN_Save);
+        newItem_BTN_Back = findViewById(R.id.newItem_BTN_Back);
 
     }
 
@@ -188,7 +196,34 @@ public class NewItemActivity extends AppCompatActivity {
             }
         });
 
+        newItem_TIET_Favorite.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
+                if (!isFavorite){
+                    newItem_TIL_Favorite.setEndIconDrawable(R.drawable.ic_favorite);
+                    isFavorite=true;
+                }else{
+                    newItem_TIL_Favorite.setEndIconDrawable(R.drawable.ic_favorite_border);
+                    isFavorite=false;
+                }
+
+            }
+        });
+
+        newItem_BTN_Back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
+        newItem_BTN_Save.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // TODO: 2/16/2022  btnSaveNewItem
+            }
+        });
 
 
 

@@ -14,7 +14,7 @@
         android:background="@color/white">
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/newItem_color_BTN_back"
+            android:id="@+id/newItem_BTN_Back"
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:layout_marginStart="10dp"
@@ -29,20 +29,17 @@
             tools:ignore="SpeakableTextPresentCheck" />
 
         <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/newItem_color_LBL_title"
+            android:id="@+id/newItem_LBL_title"
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:layout_marginTop="10dp"
             android:fontFamily="@font/abeezee"
-            android:text="@string/dialog_color_title"
+            android:text="@string/additem"
             android:textStyle="bold"
             android:textColor="@color/style4"
             android:textSize="24sp" />
 
     </LinearLayout>
-
-
-
 
 
     <LinearLayout
@@ -135,7 +132,6 @@
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/shift_cardView_workplace"
                     android:layout_marginStart="20dp"
                     android:layout_marginEnd="20dp"
                     android:hint="@string/category"
@@ -184,7 +180,6 @@
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/shift_cardView_workplace"
                     android:layout_marginStart="20dp"
                     android:layout_marginEnd="20dp"
                     android:hint="@string/size"
@@ -234,7 +229,6 @@
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/shift_cardView_workplace"
                     android:layout_marginStart="20dp"
                     android:layout_marginEnd="20dp"
                     android:hint="@string/Color"
@@ -272,6 +266,57 @@
             </LinearLayout>
 
 
+            <LinearLayout
+                android:id="@+id/newItem_Layout_Favorite"
+                android:layout_marginTop="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/newItem_TIL_Favorite"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:hint="@string/favorite"
+                    android:fontFamily="@font/abeezee"
+                    android:textColor="@color/style4"
+                    android:textColorHint="@color/style1"
+                    app:boxBackgroundColor="@color/style2"
+                    app:boxStrokeColor="@color/style4"
+                    app:boxStrokeErrorColor="@color/red"
+                    app:counterTextColor="@color/style4"
+                    app:hintEnabled="true"
+                    app:hintTextColor="@color/style4"
+                    app:placeholderTextColor="@color/style4"
+                    app:endIconMode="custom"
+                    app:endIconDrawable="@drawable/ic_favorite_border"
+                    app:boxStrokeWidth="2dp"
+                    >
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/newItem_TIET_Favorite"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:focusableInTouchMode="true"
+                        android:cursorVisible="false"
+                        android:focusable="false"
+                        android:inputType="text"
+                        android:fontFamily="@font/abeezee"
+                        android:textIsSelectable="true"
+                        android:textAlignment="center"
+                        android:textColor="@color/style4"
+                        app:hintTextColor="@color/style2" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </LinearLayout>
+
+
+
 
             <LinearLayout
                 android:orientation="horizontal"
@@ -280,7 +325,7 @@
                 android:layout_marginTop="90dp">
 
                 <com.google.android.material.button.MaterialButton
-                    android:id="@+id/panel_BTN_Save"
+                    android:id="@+id/newItem_BTN_Save"
                     android:layout_gravity="center"
                     android:layout_weight="1"
                     android:layout_width="0dp"

@@ -3,12 +3,109 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Fregments.ClosetFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/closet_TabCategories"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:tabIconTint="@drawable/bottom_item_background"
+        app:tabTextColor="@drawable/bottom_item_background"
+        app:tabIndicatorColor="@color/style4"
+        android:backgroundTint="@color/white"
+        app:tabMode="scrollable">
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/closet_All"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="All"
+            android:icon="@drawable/ic_clothes"
+            />
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/closet_Shirts"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Shirts"
+            android:icon="@drawable/ic_shirt"
+            />
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/closet_TShirts"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="T-Shirts"
+            android:icon="@drawable/ic_tshirt"
+            />
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/closet_Knitwear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Knitwear"
+            android:icon="@drawable/ic_knitwear"
+            />
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/closet_Sweatshirts"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sweatshirts"
+            android:icon="@drawable/ic_sweatshirt"
+            />
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/closet_Pants"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pants"
+            android:icon="@drawable/ic_pants"
+            />
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/closet_Coats"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Coats"
+            android:icon="@drawable/ic_coat"
+            />
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/closet_Shoes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Shoes"
+            android:icon="@drawable/ic_shoes"
+            />
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/closet_Bags"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Bags"
+            android:icon="@drawable/ic_bag"
+            />
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/closet_Accessories"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Bags"
+            android:icon="@drawable/ic_accessory"
+            />
+
+    </com.google.android.material.tabs.TabLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/closet_LST_Clothes"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:paddingTop="20dp"
+        android:layout_marginTop="?attr/actionBarSize"/>
+
+
 
 </FrameLayout>
