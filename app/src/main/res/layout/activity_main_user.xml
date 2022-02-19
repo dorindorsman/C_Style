@@ -41,7 +41,7 @@
                 android:src="@drawable/ic_menu"
                 app:tint="@color/style4"/>
 
-            <TextView
+            <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/panel_TextTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -64,6 +64,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="?attr/actionBarSize"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
             android:clipToPadding="false"
             />
 

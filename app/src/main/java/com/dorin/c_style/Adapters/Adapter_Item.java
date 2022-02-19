@@ -23,11 +23,12 @@ import java.util.ArrayList;
 public class Adapter_Item extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     private Activity activity;
-    private ArrayList<Item> items = new ArrayList<>();
+    private ArrayList<Item> items;
     private ItemClickListener itemClickListener;
 
     public interface ItemClickListener {
         void favoriteClicked(int pos, Item item);
+        void itemClicked(Item item);
     }
 
     public Adapter_Item(Activity activity, ArrayList<Item> items) {
@@ -65,6 +66,7 @@ public class Adapter_Item extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
         itemViewHolder.item_TIL_ColorItem.getEndIconDrawable().setColorFilter(Color.parseColor(item.getColor()), PorterDuff.Mode.SRC_ATOP);
 
 
+
         if (item.isFavorite()) {
             itemViewHolder.item_IMG_favorite.setImageResource(R.drawable.ic_heart_filled);
         } else  {
@@ -74,8 +76,10 @@ public class Adapter_Item extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
 
     @Override
     public int getItemCount() {
+        if (items == null) return 0;
         return items.size();
     }
+
 
     private Item getItem(int position) {
         return items.get(position);
@@ -101,6 +105,12 @@ public class Adapter_Item extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
             this.item_LBL_SizeItem = itemView.findViewById(R.id.item_LBL_SizeItem);
             this.item_TIL_ColorItem = itemView.findViewById(R.id.item_TIL_ColorItem);
 
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    itemClickListener.itemClicked(getItem(getAdapterPosition()));
+                }
+            });
 
             item_IMG_favorite.setOnClickListener(new View.OnClickListener() {
                 @Override

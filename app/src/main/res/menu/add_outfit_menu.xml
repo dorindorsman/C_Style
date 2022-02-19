@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/holder1"
+        android:title=""
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/holder2"
+        android:title=""
+        app:showAsAction="ifRoom" />
+
+        <item
+            android:id="@+id/Accessory"
+            android:title="Accessory"
+            app:showAsAction="ifRoom"
+            android:icon="@drawable/ic_accessory">
+
+            <menu>
+                <item android:id="@+id/addAccessory"
+                    android:title="Add"/>
+
+                <item android:id="@+id/deleteAccessory"
+                    android:title="@string/delete"/>
+
+            </menu>
+
+        </item>
+
+        <item
+            android:id="@+id/Bag"
+            android:title="@string/Bag"
+            app:showAsAction="ifRoom"
+            android:icon="@drawable/ic_bag">
+
+            <menu>
+                <item android:id="@+id/addBag"
+                    android:title="Add"/>
+
+                <item android:id="@+id/deleteBag"
+                    android:title="@string/delete"/>
+
+            </menu>
+        </item>
+
+
+        <item
+            android:id="@+id/Coat"
+            android:title="@string/Coat"
+            app:showAsAction="ifRoom"
+            android:icon="@drawable/ic_coat">
+
+            <menu>
+                <item android:id="@+id/addCoat"
+                    android:title="Add"/>
+
+                <item android:id="@+id/deleteCoat"
+                    android:title="@string/delete"/>
+
+            </menu>
+
+        </item>
+
+        <item
+            android:id="@+id/Top"
+            android:title="@string/Top"
+            app:showAsAction="ifRoom"
+            android:icon="@drawable/ic_shirt">
+
+            <menu>
+                <item android:id="@+id/addTop"
+                    android:title="Add"/>
+
+                <item android:id="@+id/deleteTop"
+                    android:title="@string/delete"/>
+
+            </menu>
+
+        </item>
+
+        <item
+            android:id="@+id/Bottom"
+            android:title="@string/Bottom"
+            app:showAsAction="ifRoom"
+            android:icon="@drawable/ic_pants">
+
+            <menu>
+                <item android:id="@+id/addBottom"
+                    android:title="Add"/>
+
+                <item android:id="@+id/deleteBottom"
+                    android:title="@string/delete"/>
+
+            </menu>
+
+        </item>
+
+        <item
+            android:id="@+id/Shoes"
+            android:title="@string/Shoes"
+            app:showAsAction="ifRoom"
+            android:icon="@drawable/ic_shoes">
+
+            <menu>
+                <item android:id="@+id/addShoes"
+                    android:title="Add"/>
+
+                <item android:id="@+id/deleteShoes"
+                    android:title="@string/delete"/>
+
+            </menu>
+
+
+        </item>
+
+
+
+
+
+</menu>

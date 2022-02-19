@@ -18,10 +18,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.dorin.c_style.Firebase.FireBaseMyStorage;
 import com.dorin.c_style.Firebase.FirebaseDB;
 import com.dorin.c_style.Managers.UserDataManager;
 import com.dorin.c_style.Objects.User;
 import com.dorin.c_style.R;
+import com.dorin.c_style.Validator;
 import com.github.dhaval2404.imagepicker.ImagePicker;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -46,17 +48,21 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class SignUpActivity extends AppCompatActivity {
 
    private TextInputEditText signUp_TIET_User_First_Name;
+   private TextInputLayout signUp_TIL_User_First_Name;
    private TextInputEditText signUp_TIET_User_Last_Name;
+   private TextInputLayout signUp_TIL_User_Last_Name;
    private MaterialButton signUp_BTN_SignUp;
 
    public CircleImageView signUp_BTN_User_Image;
 
    private String urlIMG="https://firebasestorage.googleapis.com/v0/b/c-style-e408e.appspot.com/o/ProfilePictures%2Fprofilepicturedefault.png?alt=media&token=61903f23-556c-4525-a147-564360c0416e";
 
-   private FirebaseStorage myStorage;
-   private StorageReference myStorageReference;
+   Validator validatorFirstName;
+   Validator validatorLastName;
+
    private UserDataManager myUserDataManager;
    private FirebaseAuth myAuth;
+   private FireBaseMyStorage fireBaseMyStorage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,21 +71,39 @@ public class SignUpActivity extends AppCompatActivity {
 
 
         myAuth=FirebaseAuth.getInstance();
-        myStorage=FirebaseStorage.getInstance();
-        myStorageReference=myStorage.getReference().child("ProfilePictures").child(myAuth.getCurrentUser().getUid());
+        fireBaseMyStorage=FireBaseMyStorage.getInstance();
+        fireBaseMyStorage.setCallBack_uploadImg(callBack_uploadImg);
         myUserDataManager= UserDataManager.getInstance();
 
 
 
         findViews();
+        initValidator();
         initButtons();
     }
+
+
 
     private void findViews() {
         signUp_BTN_User_Image=findViewById(R.id.signUp_BTN_User_Image);
         signUp_TIET_User_First_Name=findViewById(R.id.signUp_TIET_User_First_Name);
+        signUp_TIL_User_First_Name=findViewById(R.id.signUp_TIL_User_First_Name);
         signUp_TIET_User_Last_Name=findViewById(R.id.signUp_TIET_User_Last_Name);
+        signUp_TIL_User_Last_Name=findViewById(R.id.signUp_TIL_User_Last_Name);
         signUp_BTN_SignUp=findViewById(R.id.signUp_BTN_SignUp);
+    }
+
+    private void initValidator() {
+        validatorFirstName=Validator.Builder.make(signUp_TIL_User_First_Name)
+                .addWatcher(new Validator.Watcher_StringEmpty("Name Cannot Be Empty"))
+                .addWatcher(new Validator.Watcher_String("Name Contains Only Characters"))
+                .build();
+
+        validatorLastName=Validator.Builder.make(signUp_TIL_User_Last_Name)
+                .addWatcher(new Validator.Watcher_StringEmpty("Name Cannot Be Empty"))
+                .addWatcher(new Validator.Watcher_String("Name Contains Only Characters"))
+                .build();
+
     }
 
     private void initButtons() {
@@ -87,8 +111,13 @@ public class SignUpActivity extends AppCompatActivity {
         signUp_BTN_SignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                myUserDataManager.setMyUser(signUp_TIET_User_First_Name.getText().toString(),signUp_TIET_User_Last_Name.getText().toString(),urlIMG);
-                openActivity(MainUserActivity.class);
+                if(validatorFirstName.validateIt() && validatorLastName.validateIt()){
+                    myUserDataManager.setMyUser(signUp_TIET_User_First_Name.getText().toString(),signUp_TIET_User_Last_Name.getText().toString(),urlIMG);
+                    openActivity(MainUserActivity.class);
+                }else{
+                    Toast.makeText(SignUpActivity.this,"There Are Errors",Toast.LENGTH_LONG).show();
+                }
+
             }
         });
 
@@ -102,10 +131,13 @@ public class SignUpActivity extends AppCompatActivity {
                         .compress(1024)			//Final image size will be less than 1 MB(Optional)
                         .maxResultSize(1080, 1080)	//Final image resolution will be less than 1080 x 1080(Optional)
                         .start();
+
             }
         });
 
     }
+
+
 
     private void openActivity(Class activity) {
         Intent intent = new Intent(this, activity);
@@ -120,79 +152,16 @@ public class SignUpActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         Uri resultUri = data.getData();
         signUp_BTN_User_Image.setImageURI(resultUri);
-        uploadImage(resultUri);
+        fireBaseMyStorage.uploadImageProfile(resultUri,myAuth.getCurrentUser().getUid(),this);
+
     }
 
-
-    private void uploadImage(Uri resultUri)
-    {
-        if (resultUri != null) {
-
-            // Code for showing progressDialog while uploading
-            ProgressDialog progressDialog
-                    = new ProgressDialog(this);
-            progressDialog.setTitle("Uploading...");
-            progressDialog.show();
-
-            // adding listeners on upload
-            // or failure of image
-            myStorageReference.putFile(resultUri)
-                    .addOnCompleteListener(new OnCompleteListener<UploadTask.TaskSnapshot>() {
-                        @Override
-                        public void onComplete(@NonNull Task<UploadTask.TaskSnapshot> task) {
-                            if(task.isSuccessful()){
-                                // Image uploaded successfully
-                                // Dismiss dialog
-                                progressDialog.dismiss();
-                                Toast
-                                        .makeText(SignUpActivity.this,
-                                                "Image Uploaded!",
-                                                Toast.LENGTH_SHORT)
-                                        .show();
-                                myStorageReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-                                    @Override
-                                    public void onSuccess(Uri uri) {
-                                            urlIMG=uri.toString();
-                                    }
-                                });
-                            }
-                        }
-                    })
-
-
-                    .addOnFailureListener(new OnFailureListener() {
-                        @Override
-                        public void onFailure(@NonNull Exception e)
-                        {
-
-                            // Error, Image not uploaded
-                            progressDialog.dismiss();
-                            Toast
-                                    .makeText(SignUpActivity.this,
-                                            "Failed " + e.getMessage(),
-                                            Toast.LENGTH_SHORT)
-                                    .show();
-                        }
-                    })
-                    .addOnProgressListener(
-                            new OnProgressListener<UploadTask.TaskSnapshot>() {
-
-                                // Progress Listener for loading
-                                // percentage on the dialog box
-                                @Override
-                                public void onProgress(
-                                        UploadTask.TaskSnapshot taskSnapshot)
-                                {
-                                    double progress
-                                            = (100.0
-                                            * taskSnapshot.getBytesTransferred()
-                                            / taskSnapshot.getTotalByteCount());
-                                    progressDialog.setMessage(
-                                            "Uploaded "
-                                                    + (int)progress + "%");
-                                }
-                            });
+    FireBaseMyStorage.CallBack_UploadImg callBack_uploadImg=new FireBaseMyStorage.CallBack_UploadImg() {
+        @Override
+        public void urlReady(String url) {
+            urlIMG=url;
         }
-    }
+    };
+
 
 }

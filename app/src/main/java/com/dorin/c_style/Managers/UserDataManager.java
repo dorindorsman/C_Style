@@ -1,12 +1,15 @@
 package com.dorin.c_style.Managers;
 
 import android.content.Context;
+import android.net.Uri;
 
+import com.dorin.c_style.Firebase.FireBaseMyStorage;
 import com.dorin.c_style.Firebase.FirebaseDB;
 import com.dorin.c_style.Objects.Item;
 import com.dorin.c_style.Objects.Outfit;
 import com.dorin.c_style.Objects.User;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.storage.FirebaseStorage;
 
 import java.util.ArrayList;
 import java.util.UUID;
@@ -17,15 +20,19 @@ public class UserDataManager {
     private Context context;
     private FirebaseAuth myAuth;
     private FirebaseDB myDB;
+    private FireBaseMyStorage myStorage;
 
     private User myUser;
     private ArrayList<Item> myItems;
     private ArrayList<Outfit> myOutfits;
 
     private UserDataManager(Context context) {
+
         myDB=FirebaseDB.getInstance();
         myDB.setCallback_loadUserData(callback_loadUserData);
         myAuth=FirebaseAuth.getInstance();
+        myStorage=FireBaseMyStorage.getInstance();
+        myStorage.setCallBack_uploadImg(callBack_uploadImg);
         this.context = context;
     }
 
@@ -64,21 +71,19 @@ public class UserDataManager {
         myDB.createUser(uid, myUser);
     }
 
-    public void addNewItem(String urlImg,String name,String category,String size,String color,boolean favorite){
-
+    public void addNewItem(Uri uriImg, String name, String category, String size, String color, boolean favorite,Context context){
         Item item=new Item();
-        item.setPicture(urlImg);
         item.setName(name);
         item.setCategory(category);
         item.setSize(size);
         item.setColor(color);
         item.setFavorite(favorite);
         myItems.add(item);
-        myDB.addItem(myAuth.getCurrentUser().getUid(),item.getId(),item);
-
+        myStorage.uploadImageItem(uriImg,myAuth.getUid(), item.getId(), context);
     }
 
     public void editItem(Item item){
+
         myDB.addItem(myAuth.getCurrentUser().getUid(),item.getId(),item);
     }
 
@@ -90,13 +95,13 @@ public class UserDataManager {
 
 
 
-    public void addNewOutfit(String urlImg,String bagID,String shirtID,String pantsID,String shoesID,String accessoryID){
+    public void addNewOutfit(String name,String bagID,String coatId,String topID,String bottomID,String shoesID,String accessoryID){
 
         Outfit outfit=new Outfit();
-        outfit.setPicture(urlImg);
         outfit.setBagID(bagID);
-        outfit.setShirtID(shirtID);
-        outfit.setPantsID(pantsID);
+        outfit.setCoatID(coatId);
+        outfit.setTopID(topID);
+        outfit.setBottomID(bottomID);
         outfit.setShoesID(shoesID);
         outfit.setAccessoryID(accessoryID);
         myOutfits.add(outfit);
@@ -112,11 +117,6 @@ public class UserDataManager {
         myOutfits.remove(outfit);
         myDB.removeOutfit(myAuth.getCurrentUser().getUid(),outfit.getId());
     }
-
-
-
-
-
 
 
     FirebaseDB.Callback_loadUserData callback_loadUserData=new FirebaseDB.Callback_loadUserData() {
@@ -137,6 +137,15 @@ public class UserDataManager {
             myItems=items;
         }
     };
+
+        FireBaseMyStorage.CallBack_UploadImg callBack_uploadImg=new FireBaseMyStorage.CallBack_UploadImg() {
+            @Override
+            public void urlReady(String url) {
+               Item item = myItems.get(myItems.size() - 1);
+               item.setPicture(url);
+               myDB.addItem(myAuth.getCurrentUser().getUid(), item.getId(), item);
+            }
+        };
 
 
 }

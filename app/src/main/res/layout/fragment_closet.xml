@@ -15,6 +15,7 @@
         app:tabTextColor="@drawable/bottom_item_background"
         app:tabIndicatorColor="@color/style4"
         android:backgroundTint="@color/white"
+
         app:tabMode="scrollable">
 
         <com.google.android.material.tabs.TabItem
@@ -93,7 +94,7 @@
             android:id="@+id/closet_Accessories"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Bags"
+            android:text="Accessories"
             android:icon="@drawable/ic_accessory"
             />
 
@@ -105,7 +106,6 @@
         android:layout_height="match_parent"
         android:paddingTop="20dp"
         android:layout_marginTop="?attr/actionBarSize"/>
-
 
 
 </FrameLayout>

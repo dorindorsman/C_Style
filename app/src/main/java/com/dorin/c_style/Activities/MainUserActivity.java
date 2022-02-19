@@ -16,6 +16,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -24,12 +25,15 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.dorin.c_style.Fregments.CalenderFragment;
 import com.dorin.c_style.Fregments.ClosetFragment;
 import com.dorin.c_style.Fregments.FavoritesFragment;
 import com.dorin.c_style.Fregments.NotificationsFragment;
 import com.dorin.c_style.Fregments.OutfitsFragment;
 import com.dorin.c_style.Fregments.ProfileFragment;
+import com.dorin.c_style.Managers.UserDataManager;
+import com.dorin.c_style.Objects.User;
 import com.dorin.c_style.R;
 import com.firebase.ui.auth.AuthUI;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -39,8 +43,11 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationBarView;
 import com.google.android.material.navigation.NavigationView;
+import com.google.android.material.textview.MaterialTextView;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public class MainUserActivity extends AppCompatActivity {
 
@@ -51,15 +58,16 @@ public class MainUserActivity extends AppCompatActivity {
       private ConstraintLayout panel_Top_Menu;
       private LinearLayout panel_TopAppBar;
       private ImageView panel_IMG_Menu;
-      private TextView panel_TextTitle;
+      private MaterialTextView panel_TextTitle;
       private FragmentContainerView panel_Fragment;
       private BottomAppBar panel_BottomAppBar;
 
 
       private NavigationView panel_TopNavigationView;
+      private CircleImageView panel_Menu_IMG_profile;
+      private MaterialTextView panel_Menu_Name_profile;
       private BottomNavigationView bottomNavigationView;
       private FloatingActionButton panel_BTN_AddItem;
-      private MenuItem panel_BTN_menuProfile;
 
 
       private FragmentManager fragmentManager;
@@ -69,7 +77,7 @@ public class MainUserActivity extends AppCompatActivity {
 
       private final int SIZE=8;
 
-
+      private UserDataManager userDataManager;
 
 
     @Override
@@ -77,17 +85,25 @@ public class MainUserActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_user);
 
-
-
         findViews();
         setFragments();
         replaceFragments(panel_fragments[CLOSET]);
         initColorMenu();
         initBtn();
+        userDataManager = UserDataManager.getInstance();
+        loadData();
 
 
 
 
+
+    }
+
+    private void loadData() {
+        User user = userDataManager.getMyUser();
+        Toast.makeText(MainUserActivity.this,""+user.getUserFirstName(),Toast.LENGTH_LONG).show();
+        Glide.with(this).load(user.getUserPic()).into(panel_Menu_IMG_profile);
+        panel_Menu_Name_profile.setText(user.getUserFirstName()+" "+user.getUserLastName());
     }
 
 
@@ -117,7 +133,10 @@ public class MainUserActivity extends AppCompatActivity {
         panel_Top_Menu=findViewById(R.id.panel_Top_Menu);
         panel_TopNavigationView= findViewById(R.id.panel_TopNavigationView);
         panel_TopNavigationView.setItemIconTintList(null);
-        panel_BTN_menuProfile=findViewById(R.id.menuProfile);
+        View headerMenuProfile=panel_TopNavigationView.getHeaderView(0);
+        panel_Menu_IMG_profile=(CircleImageView) headerMenuProfile.findViewById(R.id.panel_Menu_IMG_profile);
+        panel_Menu_Name_profile=(MaterialTextView) headerMenuProfile.findViewById(R.id.panel_Menu_Name_profile);
+
     }
 
 
@@ -188,8 +207,7 @@ public class MainUserActivity extends AppCompatActivity {
         panel_BTN_AddItem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainUserActivity.this,NewItemActivity.class));
-                //new item
+                startActivity(new Intent(MainUserActivity.this,NewOutfitActivity.class));
             }
         });
 

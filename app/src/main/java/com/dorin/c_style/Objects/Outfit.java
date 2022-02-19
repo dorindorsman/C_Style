@@ -6,10 +6,10 @@ public class Outfit {
 
 
     private String id;
-    private String picture;
     private String bagID;
-    private String shirtID;
-    private String pantsID;
+    private String coatID;
+    private String topID;
+    private String bottomID;
     private String shoesID;
     private String accessoryID;
 
@@ -17,16 +17,6 @@ public class Outfit {
     public Outfit(){
         this.id = UUID.randomUUID().toString();
     }
-
-    public String getPicture() {
-        return picture;
-    }
-
-    public Outfit setPicture(String picture) {
-        this.picture = picture;
-        return this;
-    }
-
 
     public String getId() {
         return id;
@@ -45,21 +35,30 @@ public class Outfit {
         return this;
     }
 
-    public String getShirtID() {
-        return shirtID;
+    public String getCoatID() {
+        return coatID;
     }
 
-    public Outfit setShirtID(String shirtID) {
-        this.shirtID = shirtID;
+    public Outfit setCoatID(String coatID) {
+        this.coatID = coatID;
         return this;
     }
 
-    public String getPantsID() {
-        return pantsID;
+    public String getTopID() {
+        return topID;
     }
 
-    public Outfit setPantsID(String pantsID) {
-        this.pantsID = pantsID;
+    public Outfit setTopID(String topID) {
+        this.topID = topID;
+        return this;
+    }
+
+    public String getBottomID() {
+        return bottomID;
+    }
+
+    public Outfit setBottomID(String bottomID) {
+        this.bottomID = bottomID;
         return this;
     }
 

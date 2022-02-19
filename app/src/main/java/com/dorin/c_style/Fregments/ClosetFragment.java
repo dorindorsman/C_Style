@@ -15,11 +15,14 @@ import android.widget.Toast;
 
 import com.dorin.c_style.Adapters.Adapter_Item;
 import com.dorin.c_style.Adapters.Adapter_list;
+import com.dorin.c_style.Managers.UserDataManager;
 import com.dorin.c_style.Objects.Item;
+import com.dorin.c_style.Objects.User;
 import com.dorin.c_style.R;
 import com.google.android.material.tabs.TabItem;
 import com.google.android.material.tabs.TabLayout;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class ClosetFragment extends Fragment {
@@ -40,6 +43,11 @@ public class ClosetFragment extends Fragment {
 
     private AppCompatActivity activity;
     private LinearLayoutManager linearLayoutManager;
+
+    private UserDataManager userDataManager;
+
+
+
 
     public Fragment setActivity(AppCompatActivity activity){
         this.activity=activity;
@@ -62,29 +70,20 @@ public class ClosetFragment extends Fragment {
 
         View view = LayoutInflater.from(getContext()).inflate(R.layout.fragment_closet, container, false);
         findViews(view);
-
-        //test
-        ArrayList<Item> itemsLST=new ArrayList<Item>();
-        Item a=new Item().setName("dorin1").setCategory("Shirts").setFavorite(true).setColor("#fff001").setPicture("https://www.themoviedb.org/t/p/w600_and_h900_bestv2/vdVab7yNvgYEMd8shCfy2D6nTMu.jpg");
-        Item b=new Item().setName("dorin2").setCategory("Shirts").setFavorite(true).setColor("#fff002").setPicture("https://www.themoviedb.org/t/p/w600_and_h900_bestv2/vdVab7yNvgYEMd8shCfy2D6nTMu.jpg");
-        Item c=new Item().setName("dorin3").setCategory("Shirts").setFavorite(false).setColor("#fff030").setPicture("https://www.themoviedb.org/t/p/w600_and_h900_bestv2/vdVab7yNvgYEMd8shCfy2D6nTMu.jpg");
-        Item d=new Item().setName("dorin4").setCategory("Shirts").setFavorite(true).setColor("#fff000").setPicture("https://www.themoviedb.org/t/p/w600_and_h900_bestv2/vdVab7yNvgYEMd8shCfy2D6nTMu.jpg");
-        Item e=new Item().setName("dorin5").setCategory("pants").setFavorite(false).setColor("#fff000").setPicture("https://www.themoviedb.org/t/p/w600_and_h900_bestv2/vdVab7yNvgYEMd8shCfy2D6nTMu.jpg");
-        Item g=new Item().setName("dorin6").setCategory("Shirts").setFavorite(true).setColor("#faf000").setPicture("https://www.themoviedb.org/t/p/w600_and_h900_bestv2/vdVab7yNvgYEMd8shCfy2D6nTMu.jpg");
-        itemsLST.add(a);
-        itemsLST.add(b);
-        itemsLST.add(c);
-        itemsLST.add(d);
-        itemsLST.add(e);
-        itemsLST.add(g);
-
-
+        userDataManager = UserDataManager.getInstance();
         linearLayoutManager = new LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false);
         closet_LST_Clothes.setLayoutManager(linearLayoutManager);
         closet_LST_Clothes.setHasFixedSize(true);
         closet_LST_Clothes.setItemAnimator(new DefaultItemAnimator());
 
-        Adapter_Item adapter_item = new Adapter_Item(activity, itemsLST);
+        initButtons(view);
+        setItems(userDataManager.getMyItems());
+
+        return view;
+    }
+
+    private void setItems(ArrayList<Item> items){
+        Adapter_Item adapter_item = new Adapter_Item(activity, items);
         closet_LST_Clothes.setAdapter(adapter_item);
 
         adapter_item.setItemClickListener(new Adapter_Item.ItemClickListener() {
@@ -93,12 +92,48 @@ public class ClosetFragment extends Fragment {
                 item.setFavorite(!item.isFavorite());
                 closet_LST_Clothes.getAdapter().notifyItemChanged(pos);
             }
+
+            @Override
+            public void itemClicked(Item item) {
+
+            }
+        });
+    }
+
+    private void initButtons(View view) {
+
+        closet_TabCategories.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+
+                if (tab.getText().toString().equals("All")){
+                    setItems(userDataManager.getMyItems());
+                    return;
+                }
+
+                ArrayList<Item> items=userDataManager.getMyItems();
+                ArrayList<Item> itemsLST=new ArrayList<>();
+
+                for (Item item:items) {
+                    if(item.getCategory().equals(tab.getText().toString())){
+                        itemsLST.add(item);
+                    }
+                }
+
+                setItems(itemsLST);
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
+            }
         });
 
-
-
-
-        return view;
     }
 
 

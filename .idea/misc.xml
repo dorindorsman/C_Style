@@ -45,12 +45,15 @@
         <entry key="..\:/Users/Dorin/AndroidStudioProjects/C_Style/app/src/main/res/layout/activity_main.xml" value="0.12447916666666667" />
         <entry key="..\:/Users/Dorin/AndroidStudioProjects/C_Style/app/src/main/res/layout/activity_main_user.xml" value="0.22" />
         <entry key="..\:/Users/Dorin/AndroidStudioProjects/C_Style/app/src/main/res/layout/activity_new_item.xml" value="0.27708333333333335" />
+        <entry key="..\:/Users/Dorin/AndroidStudioProjects/C_Style/app/src/main/res/layout/activity_new_outfit.xml" value="0.3333333333333333" />
         <entry key="..\:/Users/Dorin/AndroidStudioProjects/C_Style/app/src/main/res/layout/activity_new_user.xml" value="0.3671875" />
+        <entry key="..\:/Users/Dorin/AndroidStudioProjects/C_Style/app/src/main/res/layout/activity_outfit.xml" value="0.27708333333333335" />
         <entry key="..\:/Users/Dorin/AndroidStudioProjects/C_Style/app/src/main/res/layout/activity_sign_in.xml" value="0.3333333333333333" />
         <entry key="..\:/Users/Dorin/AndroidStudioProjects/C_Style/app/src/main/res/layout/activity_sign_up.xml" value="0.3333333333333333" />
         <entry key="..\:/Users/Dorin/AndroidStudioProjects/C_Style/app/src/main/res/layout/activity_splash.xml" value="0.3067708333333333" />
         <entry key="..\:/Users/Dorin/AndroidStudioProjects/C_Style/app/src/main/res/layout/dialogbox_category.xml" value="0.3671875" />
         <entry key="..\:/Users/Dorin/AndroidStudioProjects/C_Style/app/src/main/res/layout/dialogbox_color_picker.xml" value="0.22" />
+        <entry key="..\:/Users/Dorin/AndroidStudioProjects/C_Style/app/src/main/res/layout/dialogbox_items.xml" value="0.23854166666666668" />
         <entry key="..\:/Users/Dorin/AndroidStudioProjects/C_Style/app/src/main/res/layout/dialogbox_workplaces.xml" value="0.1796875" />
         <entry key="..\:/Users/Dorin/AndroidStudioProjects/C_Style/app/src/main/res/layout/fragment_.xml" value="0.2234375" />
         <entry key="..\:/Users/Dorin/AndroidStudioProjects/C_Style/app/src/main/res/layout/fragment_calender.xml" value="0.2234375" />
@@ -60,14 +63,15 @@
         <entry key="..\:/Users/Dorin/AndroidStudioProjects/C_Style/app/src/main/res/layout/fragment_notifications.xml" value="0.2828125" />
         <entry key="..\:/Users/Dorin/AndroidStudioProjects/C_Style/app/src/main/res/layout/fragment_outfit.xml" value="0.3671875" />
         <entry key="..\:/Users/Dorin/AndroidStudioProjects/C_Style/app/src/main/res/layout/fragment_outfits.xml" value="0.3671875" />
-        <entry key="..\:/Users/Dorin/AndroidStudioProjects/C_Style/app/src/main/res/layout/fragment_profile.xml" value="0.28125" />
+        <entry key="..\:/Users/Dorin/AndroidStudioProjects/C_Style/app/src/main/res/layout/fragment_profile.xml" value="0.3333333333333333" />
         <entry key="..\:/Users/Dorin/AndroidStudioProjects/C_Style/app/src/main/res/layout/layout_navigation_header.xml" value="0.2234375" />
         <entry key="..\:/Users/Dorin/AndroidStudioProjects/C_Style/app/src/main/res/layout/list_category_item.xml" value="0.2828125" />
         <entry key="..\:/Users/Dorin/AndroidStudioProjects/C_Style/app/src/main/res/layout/list_cloth.xml" value="0.2828125" />
-        <entry key="..\:/Users/Dorin/AndroidStudioProjects/C_Style/app/src/main/res/layout/list_item.xml" value="0.3333333333333333" />
+        <entry key="..\:/Users/Dorin/AndroidStudioProjects/C_Style/app/src/main/res/layout/list_item.xml" value="0.22" />
         <entry key="..\:/Users/Dorin/AndroidStudioProjects/C_Style/app/src/main/res/layout/list_outfit.xml" value="0.27708333333333335" />
         <entry key="..\:/Users/Dorin/AndroidStudioProjects/C_Style/app/src/main/res/layout/list_panel.xml" value="0.3671875" />
         <entry key="..\:/Users/Dorin/AndroidStudioProjects/C_Style/app/src/main/res/layout/list_workplace.xml" value="0.1796875" />
+        <entry key="..\:/Users/Dorin/AndroidStudioProjects/C_Style/app/src/main/res/menu/add_outfit_menu.xml" value="0.27708333333333335" />
         <entry key="..\:/Users/Dorin/AndroidStudioProjects/C_Style/app/src/main/res/menu/bottom_item_background.xml" value="0.2234375" />
         <entry key="..\:/Users/Dorin/AndroidStudioProjects/C_Style/app/src/main/res/menu/bottom_menu.xml" value="0.3671875" />
         <entry key="..\:/Users/Dorin/AndroidStudioProjects/C_Style/app/src/main/res/menu/category_menu.xml" value="0.24739583333333334" />

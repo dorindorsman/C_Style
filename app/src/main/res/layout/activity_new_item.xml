@@ -88,12 +88,10 @@
                     android:hint="@string/itemName"
                     android:fontFamily="@font/abeezee"
                     android:textColorHint="@color/style1"
-                    app:helperText="Required*"
                     app:counterEnabled="true"
                     app:counterMaxLength="10"
                     app:boxBackgroundColor="@color/style2"
                     app:hintTextColor="@color/style4"
-                    app:helperTextTextColor="@color/red"
                     app:boxStrokeColor="@color/style4"
                     app:boxStrokeWidth="2dp"
                     >

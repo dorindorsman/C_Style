@@ -48,5 +48,13 @@
     <string name="itemCategory">Item Category</string>
     <string name="itemSize">Item Size</string>
     <string name="outfitName">Outfit Name</string>
+    <string name="itemColor">Item Color</string>
+    <string name="addoutfit">Add Outfit</string>
+    <string name="Accessory">Accessory</string>
+    <string name="Bag">Bag</string>
+    <string name="Coat">Coat</string>
+    <string name="Top">Top</string>
+    <string name="Bottom">Bottom</string>
+    <string name="Shoes">Shoes</string>
 
 </resources>

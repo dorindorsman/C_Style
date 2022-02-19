@@ -31,7 +31,7 @@
 <!--            android:textSize="24sp" />-->
 
         <LinearLayout
-            android:id="@+id/panel_TopProfile"
+            android:id="@+id/Profile_TopProfile"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="10dp"
@@ -39,11 +39,13 @@
             android:gravity="center">
 
             <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/Profile_IMG_User"
                 android:layout_width="110dp"
                 android:layout_height="110dp"
                 android:src="@drawable/ic_account"/>
 
-            <TextView
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/Profile_LBL_UserName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/userName"
@@ -65,7 +67,7 @@
 
 
         <LinearLayout
-            android:id="@+id/panel_FirstNameProfile"
+            android:id="@+id/Profile_FirstName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
@@ -81,7 +83,7 @@
                 android:src="@drawable/ic_person"
                 />
 
-            <TextView
+            <com.google.android.material.textview.MaterialTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/firstName"
@@ -92,11 +94,12 @@
                 android:layout_marginStart="5dp"
                 />
 
-            <TextView
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/Profile_LBL_UserFirstName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/userFirstName"
-                android:layout_marginStart="25dp"
+                android:layout_marginStart="60dp"
                 android:fontFamily="@font/abeezee"
                 android:textSize="18dp"
                 android:textColor="@color/style1"/>
@@ -114,7 +117,7 @@
 
 
         <LinearLayout
-            android:id="@+id/panel_LastNameProfile"
+            android:id="@+id/Profile_LastName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
@@ -130,7 +133,7 @@
                 android:src="@drawable/ic_person"
                 />
 
-            <TextView
+            <com.google.android.material.textview.MaterialTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/lastName"
@@ -141,14 +144,15 @@
                 android:layout_marginStart="5dp"
                 />
 
-            <TextView
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/Profile_LBL_UserLastName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/userLastName"
-                android:layout_marginStart="25dp"
+                android:layout_marginStart="61dp"
                 android:fontFamily="@font/abeezee"
-                android:textSize="18dp"
-                android:textColor="@color/style1"/>
+                android:text="@string/userLastName"
+                android:textColor="@color/style1"
+                android:textSize="18dp" />
 
         </LinearLayout>
 
@@ -162,7 +166,7 @@
             />
 
         <LinearLayout
-            android:id="@+id/panel_PhoneNumberProfile"
+            android:id="@+id/Profile_PhoneNumber"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
@@ -178,7 +182,7 @@
                 android:src="@drawable/ic_phone"
                 />
 
-            <TextView
+            <com.google.android.material.textview.MaterialTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/phoneNumber"
@@ -189,11 +193,12 @@
                 android:layout_marginStart="5dp"
                 />
 
-            <TextView
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/Profile_LBL_UserPhoneNumber"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/userPhoneNumber"
-                android:layout_marginStart="25dp"
+                android:layout_marginStart="26dp"
                 android:fontFamily="@font/abeezee"
                 android:textSize="18dp"
                 android:textColor="@color/style1" />
@@ -212,7 +217,7 @@
 
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/panel_BTN_EditProfile"
+            android:id="@+id/Profile_BTN_EditProfile"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"

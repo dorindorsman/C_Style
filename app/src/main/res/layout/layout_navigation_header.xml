@@ -6,7 +6,7 @@
     android:padding="20dp">
 
     <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/panel_IMG_Profile"
+        android:id="@+id/panel_Menu_IMG_profile"
         android:layout_width="70dp"
         android:layout_height="70dp"
         android:scaleType="centerCrop"
@@ -19,12 +19,13 @@
         android:id="@+id/panel_ViewSupporter"
         android:layout_width="1dp"
         android:layout_height="1dp"
-        app:layout_constraintBottom_toBottomOf="@id/panel_IMG_Profile"
-        app:layout_constraintEnd_toEndOf="@id/panel_IMG_Profile"
-        app:layout_constraintStart_toStartOf="@+id/panel_IMG_Profile"
-        app:layout_constraintTop_toTopOf="@id/panel_IMG_Profile" />
+        app:layout_constraintBottom_toBottomOf="@id/panel_Menu_IMG_profile"
+        app:layout_constraintEnd_toEndOf="@id/panel_Menu_IMG_profile"
+        app:layout_constraintStart_toStartOf="@+id/panel_Menu_IMG_profile"
+        app:layout_constraintTop_toTopOf="@id/panel_Menu_IMG_profile" />
 
-    <TextView
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/panel_Menu_Name_profile"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
@@ -34,7 +35,7 @@
         android:fontFamily="@font/abeezee"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@id/panel_ViewSupporter"
-        app:layout_constraintStart_toEndOf="@id/panel_IMG_Profile"
+        app:layout_constraintStart_toEndOf="@id/panel_Menu_IMG_profile"
         />
 
 

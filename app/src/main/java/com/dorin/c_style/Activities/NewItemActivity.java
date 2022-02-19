@@ -1,26 +1,43 @@
 package com.dorin.c_style.Activities;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.text.Editable;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.dorin.c_style.Dialog.ViewDialog_ColorPicker;
 import com.dorin.c_style.Dialog.ViewDialog_List;
+import com.dorin.c_style.Firebase.FireBaseMyStorage;
+import com.dorin.c_style.Managers.UserDataManager;
+import com.dorin.c_style.Objects.Item;
 import com.dorin.c_style.R;
+import com.dorin.c_style.Validator;
 import com.github.dhaval2404.imagepicker.ImagePicker;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.OnProgressListener;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 
 
 import java.util.ArrayList;
@@ -51,9 +68,14 @@ public class NewItemActivity extends AppCompatActivity {
     private ArrayList<String> sizeClothesList;
     private ArrayList<String> sizeShoesList;
     private ArrayList<String> sizeAccList;
+
+    Validator validatorItemName;
     private int categoryPick;
     private String color;
     private boolean isFavorite=false;
+    private UserDataManager userDataManager;
+    private Uri resultUri;
+
 
     public interface Callback_ViewDialogColorPicker {
         void done(String rgb);
@@ -66,7 +88,9 @@ public class NewItemActivity extends AppCompatActivity {
 
         buildArrays();
         findViews();
+        initValidator();
         clickListener();
+        userDataManager = UserDataManager.getInstance();
 
 
     }
@@ -128,7 +152,14 @@ public class NewItemActivity extends AppCompatActivity {
 
     }
 
-    private void clickListener() {
+    private void initValidator() {
+        validatorItemName = Validator.Builder.make(newItem_TIL_itemName)
+                .addWatcher(new Validator.Watcher_StringEmpty("Name Cannot Be Empty"))
+                .addWatcher(new Validator.Watcher_String("Name Contains Only Characters"))
+                .build();
+    }
+
+        private void clickListener() {
 
         newItem_TIET_Category.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -221,7 +252,8 @@ public class NewItemActivity extends AppCompatActivity {
         newItem_BTN_Save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // TODO: 2/16/2022  btnSaveNewItem
+                    userDataManager.addNewItem(resultUri,newItem_TIEL_itemName.getText().toString(),newItem_TIET_Category.getText().toString(),newItem_TIET_Size.getText().toString(),color,isFavorite, NewItemActivity.this);
+                    finish();
             }
         });
 
@@ -230,13 +262,6 @@ public class NewItemActivity extends AppCompatActivity {
     }
 
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        Uri resultUri = data.getData();
-        newItem_ItemPicture.setImageURI(resultUri);
-
-    }
 
 
     ViewDialog_List.Callback_ViewDialog callBack_viewDialogCategory = new ViewDialog_List.Callback_ViewDialog() {
@@ -284,6 +309,18 @@ public class NewItemActivity extends AppCompatActivity {
             newItem_TIL_Color.getEndIconDrawable().setColorFilter(Color.parseColor(color), PorterDuff.Mode.SRC_ATOP);
         }
     };
+
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        resultUri = data.getData();
+        newItem_ItemPicture.setImageURI(resultUri);
+
+    }
+
+
+
 
 
 }

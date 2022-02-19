@@ -10,7 +10,9 @@ import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.dorin.c_style.Adapters.Adapter_Item;
 import com.dorin.c_style.Adapters.Adapter_list;
+import com.dorin.c_style.Objects.Item;
 import com.dorin.c_style.R;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textview.MaterialTextView;
@@ -18,8 +20,7 @@ import com.google.android.material.textview.MaterialTextView;
 import java.util.ArrayList;
 
 
-
-public class ViewDialog_List {
+public class ViewDialog_Items {
 
     private MaterialTextView dialog_List_LBL_title;
     private RecyclerView dialog_LST_List;
@@ -28,19 +29,16 @@ public class ViewDialog_List {
 
 
     public interface Callback_ViewDialog{
-        void itemClicked(int pos);
+        void itemClicked(String id,String urlImg,String category);
     }
 
-    public void showDialog(Activity activity, String title ,ArrayList<String> list, Callback_ViewDialog callBack_viewDialogList) {
+    public void showDialog(Activity activity, String title , ArrayList<Item> list, Callback_ViewDialog callBack_viewDialogItem) {
         final Dialog dialog = new Dialog(activity);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.setCancelable(false);
-        dialog.setContentView(R.layout.dialogbox_category);
+        dialog.setContentView(R.layout.dialogbox_items);
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
-
-
         findViews(dialog);
-
         dialog_List_LBL_title.setText(title);
         linearLayoutManager = new LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false);
         dialog_LST_List.setLayoutManager(linearLayoutManager);
@@ -49,15 +47,18 @@ public class ViewDialog_List {
 
 
 
-        Adapter_list adapter_list = new Adapter_list(activity, list);
-        dialog_LST_List.setAdapter(adapter_list);
+        Adapter_Item adapter_item = new Adapter_Item(activity, list);
+        dialog_LST_List.setAdapter(adapter_item);
 
-        adapter_list.setItemClickListener(new Adapter_list.ItemClickListener() {
+        adapter_item.setItemClickListener(new Adapter_Item.ItemClickListener() {
             @Override
-            public void itemClicked(int pos) {
-                if(callBack_viewDialogList!=null){
-                    callBack_viewDialogList.itemClicked(pos);
-                }
+            public void favoriteClicked(int pos, Item item) {
+
+            }
+
+            @Override
+            public void itemClicked(Item item) {
+                callBack_viewDialogItem.itemClicked(item.getId(),item.getPicture(),title);
                 dialog.cancel();
             }
         });
