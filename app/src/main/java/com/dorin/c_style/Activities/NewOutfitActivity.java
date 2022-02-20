@@ -56,6 +56,7 @@ public class NewOutfitActivity extends AppCompatActivity {
 //    private boolean top=true;
 //    private boolean bottom=true;
 //    private boolean shoes=true;
+    private final String urlImgEmpty="https://firebasestorage.googleapis.com/v0/b/c-style-e408e.appspot.com/o/ItemsPictures%2Fempty.JPG?alt=media&token=0655b1e4-ba15-4cf4-8457-5998ceff58f8";
 
     private String acc;
     private String bag;
@@ -91,7 +92,6 @@ public class NewOutfitActivity extends AppCompatActivity {
     private void initValidator() {
         validatorOutfitName = Validator.Builder.make(newOutfit_TIL_OutfitName)
                 .addWatcher(new Validator.Watcher_StringEmpty("Name Cannot Be Empty"))
-                .addWatcher(new Validator.Watcher_String("Name Contains Only Characters"))
                 .build();
     }
 
@@ -154,6 +154,28 @@ public class NewOutfitActivity extends AppCompatActivity {
         newOutfit_BTN_Save=findViewById(R.id.newOutfit_BTN_Save);
     }
 
+    private ArrayList<Item> findItemByCategory(String category){
+        ArrayList<Item> items=new ArrayList<Item>();
+        ArrayList<Item> myItems=userDataManager.getMyItems();
+        for (Item item:myItems) {
+            if(item.getCategory().equals(category)){
+                items.add(item);
+            }
+        }
+        return items;
+    }
+    private Item getEmptyItem(){
+        Item item=new Item()
+                .setCategory("")
+                .setName("Empty")
+                .setColor("#ffffff")
+                .setSize("")
+                .setFavorite(false)
+                .setPicture(urlImgEmpty);
+
+        return item;
+    }
+
 
     private void initButtons() {
 
@@ -168,6 +190,7 @@ public class NewOutfitActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 userDataManager.addNewOutfit(newOutfit_TIEL_OutfitName.getText().toString(),bag,coat,top,bottom,shoes,acc);
+                finish();
 
             }
         });
@@ -176,14 +199,8 @@ public class NewOutfitActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 ViewDialog_Items dialog = new ViewDialog_Items();
-                ArrayList<Item> items=new ArrayList<Item>();
-                ArrayList<Item> myItems=userDataManager.getMyItems();
-                for (Item item:myItems) {
-                    if(item.getCategory().equals("Accessories")){
-                        items.add(item);
-                    }
-                }
-
+                ArrayList<Item> items=findItemByCategory("Accessories");
+                items.add(getEmptyItem().setCategory("Accessories"));
                 dialog.showDialog(NewOutfitActivity.this, "Accessories", items, callback_viewDialog);
 
             }
@@ -194,14 +211,8 @@ public class NewOutfitActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 ViewDialog_Items dialog = new ViewDialog_Items();
-                ArrayList<Item> items=new ArrayList<Item>();
-                ArrayList<Item> myItems=userDataManager.getMyItems();
-                for (Item item:myItems) {
-                    if(item.getCategory().equals("Bags")){
-                        items.add(item);
-                    }
-                }
-
+                ArrayList<Item> items=findItemByCategory("Bags");
+                items.add(getEmptyItem().setCategory("Bags"));
                 dialog.showDialog(NewOutfitActivity.this, "Bags", items, callback_viewDialog);
 
             }
@@ -211,14 +222,8 @@ public class NewOutfitActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 ViewDialog_Items dialog = new ViewDialog_Items();
-                ArrayList<Item> items=new ArrayList<Item>();
-                ArrayList<Item> myItems=userDataManager.getMyItems();
-                for (Item item:myItems) {
-                    if(item.getCategory().equals("Coats")){
-                        items.add(item);
-                    }
-                }
-
+                ArrayList<Item> items=findItemByCategory("Coats");
+                items.add(getEmptyItem().setCategory("Coats"));
                 dialog.showDialog(NewOutfitActivity.this, "Coats", items, callback_viewDialog);
             }
         });
@@ -227,14 +232,11 @@ public class NewOutfitActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 ViewDialog_Items dialog = new ViewDialog_Items();
-                ArrayList<Item> items=new ArrayList<Item>();
-                ArrayList<Item> myItems=userDataManager.getMyItems();
-                for (Item item:myItems) {
-                    if(item.getCategory().equals("Shirts")||item.getCategory().equals("T-Shirts")||item.getCategory().equals("knitwear")||item.getCategory().equals("Sweatshirts")){
-                        items.add(item);
-                    }
-                }
-
+                ArrayList<Item> items=findItemByCategory("Shirts");
+                items.addAll(findItemByCategory("T-Shirts"));
+                items.addAll(findItemByCategory("knitwear"));
+                items.addAll(findItemByCategory("Sweatshirts"));
+                items.add(getEmptyItem().setCategory("Shirts"));
                 dialog.showDialog(NewOutfitActivity.this, "Tops", items, callback_viewDialog);
             }
         });
@@ -243,13 +245,8 @@ public class NewOutfitActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 ViewDialog_Items dialog = new ViewDialog_Items();
-                ArrayList<Item> items=new ArrayList<Item>();
-                ArrayList<Item> myItems=userDataManager.getMyItems();
-                for (Item item:myItems) {
-                    if(item.getCategory().equals("Pants")){
-                        items.add(item);
-                    }
-                }
+                ArrayList<Item> items=findItemByCategory("Pants");
+                items.add(getEmptyItem().setCategory("Pants"));
                 dialog.showDialog(NewOutfitActivity.this, "Bottom", items, callback_viewDialog);
             }
         });
@@ -258,13 +255,8 @@ public class NewOutfitActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 ViewDialog_Items dialog = new ViewDialog_Items();
-                ArrayList<Item> items=new ArrayList<Item>();
-                ArrayList<Item> myItems=userDataManager.getMyItems();
-                for (Item item:myItems) {
-                    if(item.getCategory().equals("Shoes")){
-                        items.add(item);
-                    }
-                }
+                ArrayList<Item> items=findItemByCategory("Shoes");
+                items.add(getEmptyItem().setCategory("Shoes"));
                 dialog.showDialog(NewOutfitActivity.this, "Shoes", items, callback_viewDialog);
 
             }
@@ -274,47 +266,97 @@ public class NewOutfitActivity extends AppCompatActivity {
     ViewDialog_Items.Callback_ViewDialog callback_viewDialog=new ViewDialog_Items.Callback_ViewDialog() {
         @Override
         public void itemClicked(String id, String urlImg, String category) {
+
+
             if(category.equals("Accessories")){
-                Glide
-                        .with(NewOutfitActivity.this)
-                        .load(urlImg)
-                        .into(newOutfit_ItemAcc);
-                acc=id;
+                if(urlImg.equals(urlImgEmpty)){
+                    Glide
+                            .with(NewOutfitActivity.this)
+                            .load(R.drawable.emptyforoutfit)
+                            .into(newOutfit_ItemAcc);
+                    acc="";
+                }else{
+                    Glide
+                            .with(NewOutfitActivity.this)
+                            .load(urlImg)
+                            .into(newOutfit_ItemAcc);
+                    acc=id;
+                }
             }
             else if(category.equals("Bags")){
-                Glide
-                        .with(NewOutfitActivity.this)
-                        .load(urlImg)
-                        .into(newOutfit_ItemBag);
-                bag=id;
+                if(urlImg.equals(urlImgEmpty)){
+                    Glide
+                            .with(NewOutfitActivity.this)
+                            .load(R.drawable.emptyforoutfit)
+                            .into(newOutfit_ItemBag);
+                    bag="";
+                }else {
+                    Glide
+                            .with(NewOutfitActivity.this)
+                            .load(urlImg)
+                            .into(newOutfit_ItemBag);
+                    bag = id;
+                }
             }
             else if(category.equals("Coats")){
-                Glide
-                        .with(NewOutfitActivity.this)
-                        .load(urlImg)
-                        .into(newOutfit_ItemCoat);
-                coat=id;
+                if(urlImg.equals(urlImgEmpty)){
+                    Glide
+                            .with(NewOutfitActivity.this)
+                            .load(R.drawable.emptyforoutfit)
+                            .into(newOutfit_ItemCoat);
+                    coat="";
+                }else {
+                    Glide
+                            .with(NewOutfitActivity.this)
+                            .load(urlImg)
+                            .into(newOutfit_ItemCoat);
+                    coat = id;
+                }
             }
             else if(category.equals("Tops")){
-                Glide
-                        .with(NewOutfitActivity.this)
-                        .load(urlImg)
-                        .into(newOutfit_ItemTop);
-                top=id;
+                if(urlImg.equals(urlImgEmpty)){
+                    Glide
+                            .with(NewOutfitActivity.this)
+                            .load(R.drawable.emptyforoutfit)
+                            .into(newOutfit_ItemTop);
+                    top="";
+                }else {
+                    Glide
+                            .with(NewOutfitActivity.this)
+                            .load(urlImg)
+                            .into(newOutfit_ItemTop);
+                    top = id;
+                }
             }
             else if(category.equals("Bottom")){
-                Glide
-                        .with(NewOutfitActivity.this)
-                        .load(urlImg)
-                        .into(newOutfit_ItemBottom);
-                bottom=id;
+                if(urlImg.equals(urlImgEmpty)){
+                    Glide
+                            .with(NewOutfitActivity.this)
+                            .load(R.drawable.emptyforoutfit)
+                            .into(newOutfit_ItemBottom);
+                    bottom="";
+                }else {
+                    Glide
+                            .with(NewOutfitActivity.this)
+                            .load(urlImg)
+                            .into(newOutfit_ItemBottom);
+                    bottom = id;
+                }
             }
             else if(category.equals("Shoes")){
-                Glide
-                        .with(NewOutfitActivity.this)
-                        .load(urlImg)
-                        .into(newOutfit_ItemShoes);
-                shoes=id;
+                if(urlImg.equals(urlImgEmpty)){
+                    Glide
+                            .with(NewOutfitActivity.this)
+                            .load(R.drawable.emptyforoutfit)
+                            .into(newOutfit_ItemShoes);
+                    shoes="";
+                }else {
+                    Glide
+                            .with(NewOutfitActivity.this)
+                            .load(urlImg)
+                            .into(newOutfit_ItemShoes);
+                    shoes = id;
+                }
             }
         }
     };

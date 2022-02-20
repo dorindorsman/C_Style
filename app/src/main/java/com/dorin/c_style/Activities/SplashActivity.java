@@ -5,10 +5,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.View;
 import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.dorin.c_style.Firebase.FirebaseDB;
@@ -20,9 +22,10 @@ public class SplashActivity extends AppCompatActivity {
 
     private static int SPLASH_TIME_OUT=5000;
 
-    ImageView panel_IMG_Icon;
-    TextView panel_LBL_Icon;
-    TextView panel_LBL_Android;
+   private ImageView panel_IMG_Icon;
+   private TextView panel_LBL_Icon;
+   private TextView panel_LBL_Android;
+   private ProgressBar splash_progressBar;
 
 
     //Animations
@@ -53,6 +56,7 @@ public class SplashActivity extends AppCompatActivity {
                 FirebaseDB firebaseDB=FirebaseDB.getInstance();
                 if(firebaseAuth.getCurrentUser() != null){
                     firebaseDB.hasProfile(firebaseAuth.getCurrentUser().getUid());
+                    splash_progressBar.setVisibility(View.VISIBLE);
                 }else{
                     Intent intent = new Intent(SplashActivity.this, LoginActivity.class);
                     intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
@@ -74,6 +78,7 @@ public class SplashActivity extends AppCompatActivity {
         panel_IMG_Icon=findViewById(R.id.panel_IMG_Icon);
         panel_LBL_Icon=findViewById(R.id.panel_LBL_Icon);
         panel_LBL_Android=findViewById(R.id.panel_LBL_Android);
+        splash_progressBar=findViewById(R.id.splash_progressBar);
     }
 
     private void openActivity(Class activity) {

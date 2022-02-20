@@ -5,8 +5,9 @@
     android:layout_height="match_parent"
     tools:context=".Fregments.OutfitsFragment">
 
+
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/favorites_LST_Outfits"
+        android:id="@+id/outfits_LST_Outfits"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:paddingTop="20dp"

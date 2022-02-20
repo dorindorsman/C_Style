@@ -5,6 +5,7 @@ import java.util.UUID;
 public class Outfit {
 
 
+    private String name;
     private String id;
     private String bagID;
     private String coatID;
@@ -13,6 +14,14 @@ public class Outfit {
     private String shoesID;
     private String accessoryID;
 
+    public String getName() {
+        return name;
+    }
+
+    public Outfit setName(String name) {
+        this.name = name;
+        return this;
+    }
 
     public Outfit(){
         this.id = UUID.randomUUID().toString();

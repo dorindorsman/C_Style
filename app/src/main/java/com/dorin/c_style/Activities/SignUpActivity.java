@@ -6,6 +6,7 @@ import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -158,7 +159,7 @@ public class SignUpActivity extends AppCompatActivity {
 
     FireBaseMyStorage.CallBack_UploadImg callBack_uploadImg=new FireBaseMyStorage.CallBack_UploadImg() {
         @Override
-        public void urlReady(String url) {
+        public void urlReady(String url, Activity activity) {
             urlIMG=url;
         }
     };

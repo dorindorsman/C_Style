@@ -28,6 +28,19 @@
         android:textSize="55sp"
         android:textStyle="bold" />
 
+    <ProgressBar
+        android:id="@+id/splash_progressBar"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:progressTint="@color/white"
+        android:layout_below="@+id/panel_LBL_Icon"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="20dp"
+        android:indeterminateTintMode="src_in"
+        android:indeterminateTint="@color/white"
+        android:visibility="gone"
+    />
+
 
     <TextView
         android:id="@+id/panel_LBL_Android"

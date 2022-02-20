@@ -9,6 +9,7 @@
 
 
     <LinearLayout
+        android:id="@+id/newItem_AppBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/white">
@@ -42,41 +43,30 @@
     </LinearLayout>
 
 
-    <LinearLayout
+    <ScrollView
+        android:id="@+id/newOutfit_scroll"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
+        android:layout_above="@+id/newItem_BTN_Save"
+        android:layout_below="@+id/newItem_AppBar">
 
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp" >
-
-        <View
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0.3"/>
+            android:layout_height="match_parent">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="3"
-            android:orientation="vertical"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp" >
 
             <ImageView
                 android:id="@+id/newItem_ItemPicture"
                 android:layout_gravity="center"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginTop="5dp"
                 android:src="@android:drawable/ic_menu_gallery"/>
 
 
-            <LinearLayout
-                android:id="@+id/newItem_Layout_itemName"
-                android:layout_marginTop="5dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
 
                 <com.google.android.material.textfield.TextInputLayout
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -85,11 +75,13 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
                     android:layout_marginEnd="20dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_below="@+id/newItem_ItemPicture"
                     android:hint="@string/itemName"
                     android:fontFamily="@font/abeezee"
                     android:textColorHint="@color/style1"
                     app:counterEnabled="true"
-                    app:counterMaxLength="10"
+                    app:counterMaxLength="15"
                     app:boxBackgroundColor="@color/style2"
                     app:hintTextColor="@color/style4"
                     app:boxStrokeColor="@color/style4"
@@ -100,7 +92,7 @@
                         android:id="@+id/newItem_TIEL_itemName"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:maxLength="10"
+                        android:maxLength="15"
                         android:outlineAmbientShadowColor="@color/style1"
                         android:fontFamily="@font/abeezee"
                         android:shadowColor="@color/white"
@@ -112,19 +104,6 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
 
-
-            </LinearLayout>
-
-
-
-            <LinearLayout
-                android:id="@+id/newItem_Layout_Category"
-                android:layout_marginTop="5dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/newItem_TIL_Category"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -132,6 +111,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
                     android:layout_marginEnd="20dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_below="@+id/newItem_TIL_itemName"
                     android:hint="@string/category"
                     android:fontFamily="@font/abeezee"
                     android:textColor="@color/style4"
@@ -161,16 +142,6 @@
 
                 </com.google.android.material.textfield.TextInputLayout>
 
-            </LinearLayout>
-
-
-
-            <LinearLayout
-                android:id="@+id/newItem_Layout_Size"
-                android:layout_marginTop="5dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
 
 
                 <com.google.android.material.textfield.TextInputLayout
@@ -180,6 +151,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
                     android:layout_marginEnd="20dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_below="@+id/newItem_TIL_Category"
                     android:hint="@string/size"
                     android:fontFamily="@font/abeezee"
                     android:textColor="@color/style4"
@@ -211,17 +184,6 @@
 
 
 
-            </LinearLayout>
-
-
-            <LinearLayout
-                android:id="@+id/newItem_Layout_Color"
-                android:layout_marginTop="5dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/newItem_TIL_Color"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -229,6 +191,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
                     android:layout_marginEnd="20dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_below="@+id/newItem_TIL_Size"
                     android:hint="@string/Color"
                     android:fontFamily="@font/abeezee"
                     android:textColor="@color/style4"
@@ -261,16 +225,6 @@
 
                 </com.google.android.material.textfield.TextInputLayout>
 
-            </LinearLayout>
-
-
-            <LinearLayout
-                android:id="@+id/newItem_Layout_Favorite"
-                android:layout_marginTop="5dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/newItem_TIL_Favorite"
@@ -279,6 +233,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
                     android:layout_marginEnd="20dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_below="@+id/newItem_TIL_Color"
                     android:hint="@string/favorite"
                     android:fontFamily="@font/abeezee"
                     android:textColor="@color/style4"
@@ -311,33 +267,25 @@
 
                 </com.google.android.material.textfield.TextInputLayout>
 
-            </LinearLayout>
+        </RelativeLayout>
+    </ScrollView>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/newItem_BTN_Save"
+        android:layout_gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:backgroundTint="@color/style4"
+        android:text="@string/save"
+        android:fontFamily="@font/abeezee"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        />
 
 
-
-
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="90dp">
-
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/newItem_BTN_Save"
-                    android:layout_gravity="center"
-                    android:layout_weight="1"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:backgroundTint="@color/style4"
-                    android:text="@string/save"
-                    android:fontFamily="@font/abeezee"
-                    android:textColor="@color/white"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    />
-
-            </LinearLayout>
-        </LinearLayout>
-    </LinearLayout>
 
 </RelativeLayout>

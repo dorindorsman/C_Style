@@ -121,11 +121,9 @@ public class FirebaseDB {
                         User user = snapshot.getValue(User.class);
                         if (callback_loadUserData != null) {
                             callback_loadUserData.callback_loadUserData(user);
-                            loadOutfits(userID);
                             loadItems(userID);
+                            loadOutfits(userID);
                         }
-                        if (callback_checkUserExistence != null)
-                            callback_checkUserExistence.profileExist();
                     } catch (Exception ex) {
                     }
                 }
@@ -183,6 +181,9 @@ public class FirebaseDB {
                 }
                 if (callback_loadUserData != null) {
                     callback_loadUserData.callback_loadOutfits(outfits);
+                }
+                if (callback_checkUserExistence != null){
+                    callback_checkUserExistence.profileExist();
                 }
             }
 

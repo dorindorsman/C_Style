@@ -31,17 +31,7 @@
             android:src="@drawable/ic_heart_empty" />
 
 
-<!--            <MultiAutoCompleteTextView-->
-<!--                android:id="@+id/item_LBL_Name"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:text="@string/Name"-->
-<!--                android:textColor="@color/style4"-->
-<!--                android:fontFamily="@font/abeezee"-->
-<!--                android:textSize="18dp"-->
-<!--                android:textStyle="bold"-->
-<!--                android:layout_marginStart="5dp"-->
-<!--                />-->
+
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/item_LBL_NameItem"
@@ -63,19 +53,6 @@
 
 
 
-
-<!--            <MultiAutoCompleteTextView-->
-<!--                android:id="@+id/item_LBL_Category"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:text="@string/category"-->
-<!--                android:textColor="@color/style4"-->
-<!--                android:fontFamily="@font/abeezee"-->
-<!--                android:textSize="18dp"-->
-<!--                android:textStyle="bold"-->
-<!--                android:layout_marginStart="5dp"-->
-<!--                />-->
-
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/item_LBL_CategoryItem"
             android:layout_width="match_parent"
@@ -93,18 +70,6 @@
             android:textColor="@color/style1"
             android:textSize="18dp" />
 
-
-<!--            <MultiAutoCompleteTextView-->
-<!--                android:id="@+id/item_LBL_Size"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:text="@string/size"-->
-<!--                android:textColor="@color/style4"-->
-<!--                android:fontFamily="@font/abeezee"-->
-<!--                android:textSize="18dp"-->
-<!--                android:textStyle="bold"-->
-<!--                android:layout_marginStart="5dp"-->
-<!--                />-->
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/item_LBL_SizeItem"
@@ -125,28 +90,6 @@
 
 
 
-<!--        <LinearLayout-->
-<!--            android:id="@+id/item_layout_Color"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:orientation="horizontal"-->
-<!--            android:paddingStart="15dp"-->
-<!--            android:paddingEnd="15dp"-->
-<!--            android:layout_marginTop="20dp"-->
-<!--            android:gravity="center_vertical">-->
-
-
-<!--            <MultiAutoCompleteTextView-->
-<!--                android:id="@+id/item_LBL_Color"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:text="@string/Color"-->
-<!--                android:textColor="@color/style4"-->
-<!--                android:fontFamily="@font/abeezee"-->
-<!--                android:textSize="18dp"-->
-<!--                android:textStyle="bold"-->
-<!--                android:layout_marginStart="5dp"-->
-<!--                />-->
 
 
 
@@ -161,7 +104,7 @@
                 android:ellipsize="end"
                 android:maxLines="2"
                 android:minLines="2"
-                android:hint="@string/itemColor"
+                android:hint="@string/color"
                 android:fontFamily="@font/abeezee"
                 android:textColor="@color/style4"
                 android:textColorHint="@color/style1"
@@ -178,13 +121,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:backgroundTint="#ffffff"
-                    android:fontFamily="@font/abeezee"
-                    android:gravity="bottom"
-                    android:textSize="18sp"
                     android:cursorVisible="false"
                     android:focusable="false"
                     android:focusableInTouchMode="true"
-                    android:inputType="text" />
+                    android:fontFamily="@font/abeezee"
+                    android:gravity="bottom"
+                    android:inputType="text"
+                    android:textSize="18sp" />
 
             </com.google.android.material.textfield.TextInputLayout>
 

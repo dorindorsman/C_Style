@@ -20,6 +20,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.animation.TranslateAnimation;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -67,7 +68,10 @@ public class MainUserActivity extends AppCompatActivity {
       private CircleImageView panel_Menu_IMG_profile;
       private MaterialTextView panel_Menu_Name_profile;
       private BottomNavigationView bottomNavigationView;
+      private FloatingActionButton panel_BTN_Add;
       private FloatingActionButton panel_BTN_AddItem;
+      private FloatingActionButton panel_BTN_AddOutfit;
+      private LinearLayout panel_Layout_addButtons;
 
 
       private FragmentManager fragmentManager;
@@ -76,6 +80,7 @@ public class MainUserActivity extends AppCompatActivity {
       private Fragment[] panel_fragments;
 
       private final int SIZE=8;
+      private boolean isFABOpen=false;
 
       private UserDataManager userDataManager;
 
@@ -90,6 +95,7 @@ public class MainUserActivity extends AppCompatActivity {
         replaceFragments(panel_fragments[CLOSET]);
         initColorMenu();
         initBtn();
+        closeFABMenu();
         userDataManager = UserDataManager.getInstance();
         loadData();
 
@@ -101,7 +107,6 @@ public class MainUserActivity extends AppCompatActivity {
 
     private void loadData() {
         User user = userDataManager.getMyUser();
-        Toast.makeText(MainUserActivity.this,""+user.getUserFirstName(),Toast.LENGTH_LONG).show();
         Glide.with(this).load(user.getUserPic()).into(panel_Menu_IMG_profile);
         panel_Menu_Name_profile.setText(user.getUserFirstName()+" "+user.getUserLastName());
     }
@@ -128,7 +133,10 @@ public class MainUserActivity extends AppCompatActivity {
         bottomNavigationView=findViewById(R.id.panel_BottomNavigationView);
         bottomNavigationView.setBackground(null);
 
-        panel_BTN_AddItem=findViewById(R.id.panel_BTN_AddItem);
+        panel_BTN_Add=findViewById(R.id.panel_BTN_Add);
+        panel_BTN_AddItem = findViewById(R.id.panel_BTN_AddItem);
+        panel_BTN_AddOutfit = findViewById(R.id.panel_BTN_AddOutfit);
+        panel_Layout_addButtons=findViewById(R.id.panel_Layout_addButtons);
 
         panel_Top_Menu=findViewById(R.id.panel_Top_Menu);
         panel_TopNavigationView= findViewById(R.id.panel_TopNavigationView);
@@ -201,10 +209,45 @@ public class MainUserActivity extends AppCompatActivity {
     }
 
 
+    private void showFABMenu(){
+        isFABOpen=true;
+        TranslateAnimation anim = new TranslateAnimation(0,0,panel_Layout_addButtons.getHeight()+1000,0);
+        anim.setDuration(500);
+        anim.setFillAfter(true);
+        panel_Layout_addButtons.startAnimation(anim);
+    }
+
+    private void closeFABMenu(){
+        isFABOpen=false;
+        TranslateAnimation anim = new TranslateAnimation(0,0,0,panel_Layout_addButtons.getHeight()+1000);
+        anim.setDuration(500);
+        anim.setFillAfter(true);
+        panel_Layout_addButtons.startAnimation(anim);
+
+    }
+
 
     private void initBtn() {
 
+        panel_BTN_Add.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                        if(!isFABOpen){
+                            showFABMenu();
+                        }else{
+                            closeFABMenu();
+                        }
+            }
+        });
+
         panel_BTN_AddItem.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainUserActivity.this,NewItemActivity.class));
+            }
+        });
+
+        panel_BTN_AddOutfit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MainUserActivity.this,NewOutfitActivity.class));

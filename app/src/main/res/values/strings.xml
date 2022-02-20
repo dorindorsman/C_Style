@@ -56,5 +56,6 @@
     <string name="Top">Top</string>
     <string name="Bottom">Bottom</string>
     <string name="Shoes">Shoes</string>
+    <string name="color">Color</string>
 
 </resources>

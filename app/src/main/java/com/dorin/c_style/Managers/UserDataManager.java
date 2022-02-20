@@ -1,10 +1,13 @@
 package com.dorin.c_style.Managers;
 
+import android.app.Activity;
 import android.content.Context;
 import android.net.Uri;
+import android.util.Log;
 
 import com.dorin.c_style.Firebase.FireBaseMyStorage;
 import com.dorin.c_style.Firebase.FirebaseDB;
+import com.dorin.c_style.Fregments.ClosetFragment;
 import com.dorin.c_style.Objects.Item;
 import com.dorin.c_style.Objects.Outfit;
 import com.dorin.c_style.Objects.User;
@@ -26,6 +29,8 @@ public class UserDataManager {
     private ArrayList<Item> myItems;
     private ArrayList<Outfit> myOutfits;
 
+
+
     private UserDataManager(Context context) {
 
         myDB=FirebaseDB.getInstance();
@@ -46,6 +51,7 @@ public class UserDataManager {
     public static UserDataManager getInstance() {
         return single_instance;
     }
+
 
     public User getMyUser() {
         return myUser;
@@ -71,7 +77,7 @@ public class UserDataManager {
         myDB.createUser(uid, myUser);
     }
 
-    public void addNewItem(Uri uriImg, String name, String category, String size, String color, boolean favorite,Context context){
+    public void addNewItem(Uri uriImg, String name, String category, String size, String color, boolean favorite, Activity activity){
         Item item=new Item();
         item.setName(name);
         item.setCategory(category);
@@ -79,7 +85,7 @@ public class UserDataManager {
         item.setColor(color);
         item.setFavorite(favorite);
         myItems.add(item);
-        myStorage.uploadImageItem(uriImg,myAuth.getUid(), item.getId(), context);
+        myStorage.uploadImageItem(uriImg,myAuth.getUid(), item.getId(), activity);
     }
 
     public void editItem(Item item){
@@ -98,6 +104,7 @@ public class UserDataManager {
     public void addNewOutfit(String name,String bagID,String coatId,String topID,String bottomID,String shoesID,String accessoryID){
 
         Outfit outfit=new Outfit();
+        outfit.setName(name);
         outfit.setBagID(bagID);
         outfit.setCoatID(coatId);
         outfit.setTopID(topID);
@@ -140,12 +147,13 @@ public class UserDataManager {
 
         FireBaseMyStorage.CallBack_UploadImg callBack_uploadImg=new FireBaseMyStorage.CallBack_UploadImg() {
             @Override
-            public void urlReady(String url) {
-               Item item = myItems.get(myItems.size() - 1);
+            public void urlReady(String url,Activity activity) {
+                Log.d("tfff", "Here line 150");
+                Item item = myItems.get(myItems.size() - 1);
                item.setPicture(url);
                myDB.addItem(myAuth.getCurrentUser().getUid(), item.getId(), item);
+               activity.finish();
             }
         };
-
 
 }

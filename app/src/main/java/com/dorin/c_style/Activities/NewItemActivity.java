@@ -155,7 +155,6 @@ public class NewItemActivity extends AppCompatActivity {
     private void initValidator() {
         validatorItemName = Validator.Builder.make(newItem_TIL_itemName)
                 .addWatcher(new Validator.Watcher_StringEmpty("Name Cannot Be Empty"))
-                .addWatcher(new Validator.Watcher_String("Name Contains Only Characters"))
                 .build();
     }
 
@@ -253,15 +252,12 @@ public class NewItemActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                     userDataManager.addNewItem(resultUri,newItem_TIEL_itemName.getText().toString(),newItem_TIET_Category.getText().toString(),newItem_TIET_Size.getText().toString(),color,isFavorite, NewItemActivity.this);
-                    finish();
             }
         });
 
 
 
     }
-
-
 
 
     ViewDialog_List.Callback_ViewDialog callBack_viewDialogCategory = new ViewDialog_List.Callback_ViewDialog() {

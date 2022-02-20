@@ -1,5 +1,6 @@
 package com.dorin.c_style.Firebase;
 
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.net.Uri;
@@ -19,7 +20,7 @@ import com.google.firebase.storage.UploadTask;
 public class FireBaseMyStorage {
 
     public interface CallBack_UploadImg{
-        void urlReady(String url);
+        void urlReady(String url,Activity activity);
     }
 
 
@@ -53,13 +54,13 @@ public class FireBaseMyStorage {
     }
 
 
-    public void uploadImageProfile(Uri resultUri , String id,Context context)
+    public void uploadImageProfile(Uri resultUri , String id,Activity activity)
     {
         if (resultUri != null) {
 
             // Code for showing progressDialog while uploading
             ProgressDialog progressDialog
-                    = new ProgressDialog(context);
+                    = new ProgressDialog(activity);
             progressDialog.setTitle("Uploading...");
             progressDialog.show();
 
@@ -72,16 +73,17 @@ public class FireBaseMyStorage {
                             if(task.isSuccessful()){
                                 // Image uploaded successfully
                                 // Dismiss dialog
+
                                 progressDialog.dismiss();
                                 Toast
-                                        .makeText(context,
+                                        .makeText(activity,
                                                 "Image Uploaded!",
                                                 Toast.LENGTH_SHORT)
                                         .show();
                                 storageReferenceProfile.child(id).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                                     @Override
                                     public void onSuccess(Uri uri) {
-                                        callBack_uploadImg.urlReady(uri.toString());
+                                        callBack_uploadImg.urlReady(uri.toString(),activity);
                                     }
                                 });
                             }
@@ -97,7 +99,7 @@ public class FireBaseMyStorage {
                             // Error, Image not uploaded
                             progressDialog.dismiss();
                             Toast
-                                    .makeText(context,
+                                    .makeText(activity,
                                             "Failed " + e.getMessage(),
                                             Toast.LENGTH_SHORT)
                                     .show();
@@ -125,13 +127,13 @@ public class FireBaseMyStorage {
     }
 
 
-    public void uploadImageItem(Uri resultUri, String uid, String itemId, Context context)
+    public void uploadImageItem(Uri resultUri, String uid, String itemId, Activity activity)
     {
         if (resultUri != null) {
 
             // Code for showing progressDialog while uploading
             ProgressDialog progressDialog
-                    = new ProgressDialog(context);
+                    = new ProgressDialog(activity);
             progressDialog.setTitle("Uploading...");
             progressDialog.show();
 
@@ -146,14 +148,14 @@ public class FireBaseMyStorage {
                                 // Dismiss dialog
                                 progressDialog.dismiss();
                                 Toast
-                                        .makeText(context,
+                                        .makeText(activity,
                                                 "Image Uploaded!",
                                                 Toast.LENGTH_SHORT)
                                         .show();
                                 storageReferenceItems.child(itemId).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                                     @Override
                                     public void onSuccess(Uri uri) {
-                                        callBack_uploadImg.urlReady(uri.toString());
+                                        callBack_uploadImg.urlReady(uri.toString(),activity);
                                     }
                                 });
                             }
@@ -167,9 +169,9 @@ public class FireBaseMyStorage {
                         {
 
                             // Error, Image not uploaded
-                            progressDialog.dismiss();
+                          //  progressDialog.dismiss();
                             Toast
-                                    .makeText(context,
+                                    .makeText(activity,
                                             "Failed " + e.getMessage(),
                                             Toast.LENGTH_SHORT)
                                     .show();

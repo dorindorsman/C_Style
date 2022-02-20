@@ -68,17 +68,18 @@
             android:clipToPadding="false"
             />
 
-
-
-
-        <com.google.android.material.bottomappbar.BottomAppBar
-            android:id="@+id/panel_BottomAppBar"
-            android:layout_width="match_parent"
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/panel_BTN_Add"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
-            android:background="@color/white"
-            app:fabCradleMargin="10dp"
-            app:fabCradleRoundedCornerRadius="50dp" />
+            android:backgroundTint="@color/white"
+            android:src="@drawable/ic_add"
+            app:borderWidth="0dp"
+            app:layout_anchor="@id/panel_BottomAppBar"
+            android:layout_marginBottom="20dp"
+            app:maxImageSize="50dp"
+            app:tint="@color/style4" />
+
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/panel_BottomNavigationView"
@@ -91,20 +92,55 @@
             app:labelVisibilityMode="labeled"
             app:menu="@menu/bottom_menu" />
 
+        <com.google.android.material.bottomappbar.BottomAppBar
+            android:id="@+id/panel_BottomAppBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:background="@color/white"
+            app:fabCradleMargin="15dp"
+            app:fabCradleRoundedCornerRadius="50dp" />
 
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/panel_BTN_AddItem"
+
+
+
+        <LinearLayout
+            android:id="@+id/panel_Layout_addButtons"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/white"
-            android:src="@drawable/ic_add"
-            app:borderWidth="0dp"
-            app:layout_anchor="@id/panel_BottomAppBar"
-            app:maxImageSize="50dp"
-            app:tint="@color/style4" />
+            android:orientation="vertical"
+            android:layout_gravity="center_horizontal|bottom"
+            android:layout_marginBottom="90dp">
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/panel_BTN_AddItem"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/white"
+                android:layout_marginBottom="5dp"
+                android:src="@drawable/ic_item"
+                app:borderWidth="0dp"
+                app:maxImageSize="50dp"
+                app:tint="@color/style4" />
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/panel_BTN_AddOutfit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/white"
+                android:src="@drawable/ic_clothes"
+                app:borderWidth="0dp"
+                app:maxImageSize="50dp"
+                app:tint="@color/style4" />
+
+
+        </LinearLayout>
 
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+
+
 
 
     <com.google.android.material.navigation.NavigationView

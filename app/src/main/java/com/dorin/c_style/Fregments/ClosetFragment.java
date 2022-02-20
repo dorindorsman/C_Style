@@ -59,12 +59,6 @@ public class ClosetFragment extends Fragment {
     }
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-    }
-
-    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
@@ -75,7 +69,6 @@ public class ClosetFragment extends Fragment {
         closet_LST_Clothes.setLayoutManager(linearLayoutManager);
         closet_LST_Clothes.setHasFixedSize(true);
         closet_LST_Clothes.setItemAnimator(new DefaultItemAnimator());
-
         initButtons(view);
         setItems(userDataManager.getMyItems());
 
@@ -154,4 +147,16 @@ public class ClosetFragment extends Fragment {
 
 
     }
+
+
+
+//    UserDataManager.Callback_UserDataManagerGetItems callback_userDataManagerGetItems=new UserDataManager.Callback_UserDataManagerGetItems() {
+//        @Override
+//        public void done(boolean result) {
+//            if(result){
+//                Toast.makeText(getContext(),"Here",Toast.LENGTH_SHORT).show();
+//                setItems(userDataManager.getMyItems());
+//            }
+//        }
+//    };
 }

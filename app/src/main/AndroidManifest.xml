@@ -17,12 +17,15 @@
         android:theme="@style/Theme.C_Style">
         <activity
             android:name=".Activities.NewOutfitActivity"
+            android:screenOrientation="portrait"
             android:exported="false" />
         <activity
             android:name=".Activities.NewItemActivity"
+            android:screenOrientation="portrait"
             android:exported="false" />
         <activity
             android:name=".Activities.SplashActivity"
+            android:screenOrientation="portrait"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -32,12 +35,15 @@
         </activity>
         <activity
             android:name=".Activities.SignUpActivity"
+            android:screenOrientation="portrait"
             android:exported="false" />
         <activity
             android:name=".Activities.LoginActivity"
+            android:screenOrientation="portrait"
             android:exported="false" />
         <activity
             android:name=".Activities.MainUserActivity"
+            android:screenOrientation="portrait"
             android:exported="false" /> <!-- <activity -->
         <!-- android:name="com.theartofdev.edmodo.cropper.CropImageActivity" -->
         <!-- android:theme="@style/Base.Theme.AppCompat" /> &lt;!&ndash; optional (needed if default theme has no action bar) &ndash;&gt; -->
