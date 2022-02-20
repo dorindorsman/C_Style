@@ -29,16 +29,6 @@ public class ClosetFragment extends Fragment {
 
 
     private TabLayout closet_TabCategories;
-    private TabItem closet_All;
-    private TabItem closet_Shirts;
-    private TabItem closet_TShirts;
-    private TabItem closet_Knitwear;
-    private TabItem closet_Sweatshirts;
-    private TabItem closet_Pants;
-    private TabItem closet_Coats;
-    private TabItem closet_Shoes;
-    private TabItem closet_Bags;
-    private TabItem closet_Accessories;
     private RecyclerView closet_LST_Clothes;
 
     private AppCompatActivity activity;
@@ -133,30 +123,9 @@ public class ClosetFragment extends Fragment {
     private void findViews(View view) {
 
       closet_TabCategories=view.findViewById(R.id.closet_TabCategories);
-      closet_All=view.findViewById(R.id.closet_All);
-      closet_Shirts=view.findViewById(R.id.closet_Shirts);
-      closet_TShirts=view.findViewById(R.id.closet_TShirts);
-      closet_Knitwear=view.findViewById(R.id.closet_Knitwear);
-      closet_Sweatshirts=view.findViewById(R.id.closet_Sweatshirts);
-      closet_Pants=view.findViewById(R.id.closet_Pants);
-      closet_Coats=view.findViewById(R.id.closet_Coats);
-      closet_Shoes=view.findViewById(R.id.closet_Shoes);
-      closet_Bags=view.findViewById(R.id.closet_Bags);
-      closet_Accessories=view.findViewById(R.id.closet_Accessories);
       closet_LST_Clothes=view.findViewById(R.id.closet_LST_Clothes);
 
 
     }
 
-
-
-//    UserDataManager.Callback_UserDataManagerGetItems callback_userDataManagerGetItems=new UserDataManager.Callback_UserDataManagerGetItems() {
-//        @Override
-//        public void done(boolean result) {
-//            if(result){
-//                Toast.makeText(getContext(),"Here",Toast.LENGTH_SHORT).show();
-//                setItems(userDataManager.getMyItems());
-//            }
-//        }
-//    };
 }

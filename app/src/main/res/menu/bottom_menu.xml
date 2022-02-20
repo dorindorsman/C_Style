@@ -6,34 +6,36 @@
     <item
         android:id="@+id/closest"
         android:title="CLOSET"
+        android:icon="@drawable/ic_hanger"
         app:showAsAction="ifRoom"
-        android:icon="@drawable/ic_hanger"/>
+        />
 
     <item
-        android:id="@+id/favorites"
-        android:title="FAVORITES"
+        android:id="@+id/outfits"
+        android:title="OUTFITS"
+        android:icon="@drawable/ic_outfit"
         app:showAsAction="ifRoom"
-        android:icon="@drawable/ic_favorite"/>
-
+        />
 
     <item
         android:id="@+id/holder"
         android:title=""
         app:showAsAction="ifRoom"
         android:enabled="false"
-       />
+        />
 
     <item
-        android:id="@+id/calender"
-        android:title="CALENDER"
+        android:id="@+id/favorites"
+        android:title="FAVORITES"
+        android:icon="@drawable/ic_favorite"
         app:showAsAction="ifRoom"
-        android:icon="@drawable/ic_calendar"/>
+        />
 
     <item
-        android:id="@+id/outfits"
-        android:title="OUTFITS"
+        android:id="@+id/profile"
+        android:title="PROFILE"
         app:showAsAction="ifRoom"
-        android:icon="@drawable/ic_outfit"/>
+        android:icon="@drawable/ic_account"/>
 
 
 </menu>

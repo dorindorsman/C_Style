@@ -12,19 +12,29 @@
         android:title="@string/profile"
         />
 
-    <item
-        android:id="@+id/menuNotifications"
-        android:title="@string/notifications"
-        android:iconTint="@drawable/bottom_item_background"
-        android:icon="@drawable/ic_notifications"
-        />
 
 
-    <item
-        android:id="@+id/Settings"
-        android:title="@string/setting"
-        android:iconTint="@drawable/bottom_item_background"
-        android:icon="@drawable/ic_settings"/>
+        <item
+            android:id="@+id/closest"
+            android:title="@string/closet"
+            android:icon="@drawable/ic_hanger"
+            android:iconTint="@drawable/bottom_item_background"
+            />
+
+        <item
+            android:id="@+id/outfits"
+            android:title="@string/Outfits"
+            android:icon="@drawable/ic_outfit"
+            android:iconTint="@drawable/bottom_item_background"
+
+            />
+
+        <item
+            android:id="@+id/favorites"
+            android:title="@string/favorites"
+            android:icon="@drawable/ic_favorite"
+            android:iconTint="@drawable/bottom_item_background"
+            />
 
 
     <item

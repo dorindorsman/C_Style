@@ -41,6 +41,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomappbar.BottomAppBar;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationBarView;
 import com.google.android.material.navigation.NavigationView;
@@ -52,16 +53,11 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class MainUserActivity extends AppCompatActivity {
 
-      public static final int PROFILE = 0, CLOSET = 1, OUTFITS=2, FAVORITES=3,CALENDER=4,NOTIFICATIONS=5,SETTINGS=6,LOGOUT=7;
+      public static final int PROFILE = 0, CLOSET = 1, OUTFITS=2, FAVORITES=3,LOGOUT=4;
 
       private DrawerLayout panel_DrawerLayout;
-      private CoordinatorLayout panel_Menu;
-      private ConstraintLayout panel_Top_Menu;
-      private LinearLayout panel_TopAppBar;
-      private ImageView panel_IMG_Menu;
       private MaterialTextView panel_TextTitle;
-      private FragmentContainerView panel_Fragment;
-      private BottomAppBar panel_BottomAppBar;
+
 
 
       private NavigationView panel_TopNavigationView;
@@ -69,8 +65,8 @@ public class MainUserActivity extends AppCompatActivity {
       private MaterialTextView panel_Menu_Name_profile;
       private BottomNavigationView bottomNavigationView;
       private FloatingActionButton panel_BTN_Add;
-      private FloatingActionButton panel_BTN_AddItem;
-      private FloatingActionButton panel_BTN_AddOutfit;
+      private ExtendedFloatingActionButton panel_BTN_AddItem;
+      private ExtendedFloatingActionButton panel_BTN_AddOutfit;
       private LinearLayout panel_Layout_addButtons;
 
 
@@ -79,7 +75,7 @@ public class MainUserActivity extends AppCompatActivity {
 
       private Fragment[] panel_fragments;
 
-      private final int SIZE=8;
+      private final int SIZE=5;
       private boolean isFABOpen=false;
 
       private UserDataManager userDataManager;
@@ -98,12 +94,8 @@ public class MainUserActivity extends AppCompatActivity {
         closeFABMenu();
         userDataManager = UserDataManager.getInstance();
         loadData();
-
-
-
-
-
     }
+
 
     private void loadData() {
         User user = userDataManager.getMyUser();
@@ -122,13 +114,8 @@ public class MainUserActivity extends AppCompatActivity {
         });
 
 
-
-        panel_Menu=findViewById(R.id.panel_Menu);
-        panel_TopAppBar=findViewById(R.id.panel_TopAppBar);
-        panel_IMG_Menu=findViewById(R.id.panel_IMG_Menu);
         panel_TextTitle=findViewById(R.id.panel_TextTitle);
-        panel_Fragment=findViewById(R.id.panel_Fragment);
-        panel_BottomAppBar=findViewById(R.id.panel_BottomAppBar);
+
 
         bottomNavigationView=findViewById(R.id.panel_BottomNavigationView);
         bottomNavigationView.setBackground(null);
@@ -138,7 +125,6 @@ public class MainUserActivity extends AppCompatActivity {
         panel_BTN_AddOutfit = findViewById(R.id.panel_BTN_AddOutfit);
         panel_Layout_addButtons=findViewById(R.id.panel_Layout_addButtons);
 
-        panel_Top_Menu=findViewById(R.id.panel_Top_Menu);
         panel_TopNavigationView= findViewById(R.id.panel_TopNavigationView);
         panel_TopNavigationView.setItemIconTintList(null);
         View headerMenuProfile=panel_TopNavigationView.getHeaderView(0);
@@ -154,8 +140,6 @@ public class MainUserActivity extends AppCompatActivity {
         panel_fragments[CLOSET] = new ClosetFragment().setActivity(this);
         panel_fragments[OUTFITS] = new OutfitsFragment().setActivity(this);
         panel_fragments[FAVORITES] = new FavoritesFragment().setActivity(this);
-        panel_fragments[CALENDER] = new CalenderFragment().setActivity(this);
-        panel_fragments[NOTIFICATIONS] = new NotificationsFragment().setActivity(this);
 
     }
 
@@ -267,23 +251,18 @@ public class MainUserActivity extends AppCompatActivity {
                         panel_TextTitle.setText(getString(R.string.favorites));
                         replaceFragments(panel_fragments[FAVORITES]);
                         break;
-                    case R.id.calender:
-                        panel_TextTitle.setText(getString(R.string.Calender));
-                        replaceFragments(panel_fragments[CALENDER]);
-                        break;
                     case R.id.outfits:
                         panel_TextTitle.setText(getString(R.string.Outfits));
                         replaceFragments(panel_fragments[OUTFITS]);
                         break;
-
-
+                    case R.id.profile:
+                        panel_TextTitle.setText(getString(R.string.profile));
+                        replaceFragments(panel_fragments[PROFILE]);
+                        break;
                 }
-
                 return true;
             }
         });
-
-
 
 
         panel_TopNavigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
@@ -295,13 +274,17 @@ public class MainUserActivity extends AppCompatActivity {
                         panel_TextTitle.setText(getString(R.string.profile));
                         replaceFragments(panel_fragments[PROFILE]);
                         break;
-                    case R.id.menuNotifications:
-                        panel_TextTitle.setText(getString(R.string.notifications));
-                        replaceFragments(panel_fragments[NOTIFICATIONS]);
+                    case R.id.closest:
+                        panel_TextTitle.setText(getString(R.string.closet));
+                        replaceFragments(panel_fragments[CLOSET]);
                         break;
-                    case R.id.Settings:
-                        panel_TextTitle.setText(getString(R.string.setting));
-                        replaceFragments(panel_fragments[SETTINGS]);
+                    case R.id.favorites:
+                        panel_TextTitle.setText(getString(R.string.favorites));
+                        replaceFragments(panel_fragments[FAVORITES]);
+                        break;
+                    case R.id.outfits:
+                        panel_TextTitle.setText(getString(R.string.Outfits));
+                        replaceFragments(panel_fragments[OUTFITS]);
                         break;
                     case R.id.Logout:
                         AuthUI.getInstance()

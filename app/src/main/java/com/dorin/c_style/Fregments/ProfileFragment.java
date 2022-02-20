@@ -31,7 +31,6 @@ public class ProfileFragment extends Fragment {
     private MaterialTextView Profile_LBL_UserFirstName;
     private MaterialTextView Profile_LBL_UserLastName;
     private MaterialTextView Profile_LBL_UserPhoneNumber;
-    private MaterialButton Profile_BTN_EditProfile;
 
     private AppCompatActivity activity;
     private UserDataManager userDataManager;
@@ -60,7 +59,6 @@ public class ProfileFragment extends Fragment {
         View view = LayoutInflater.from(getContext()).inflate(R.layout.fragment_profile, container, false);
 
         findViews(view);
-        initButtons();
         userDataManager = UserDataManager.getInstance();
         loadData();
 
@@ -68,14 +66,6 @@ public class ProfileFragment extends Fragment {
 
     }
 
-    private void initButtons() {
-        Profile_BTN_EditProfile.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //replace activity ?
-            }
-        });
-    }
 
     private void loadData() {
         User user = userDataManager.getMyUser();
@@ -93,6 +83,5 @@ public class ProfileFragment extends Fragment {
         Profile_LBL_UserFirstName=view.findViewById(R.id.Profile_LBL_UserFirstName);
         Profile_LBL_UserLastName=view.findViewById(R.id.Profile_LBL_UserLastName);
         Profile_LBL_UserPhoneNumber=view.findViewById(R.id.Profile_LBL_UserPhoneNumber);
-        Profile_BTN_EditProfile=view.findViewById(R.id.Profile_BTN_EditProfile);
     }
 }

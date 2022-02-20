@@ -148,11 +148,10 @@ public class UserDataManager {
         FireBaseMyStorage.CallBack_UploadImg callBack_uploadImg=new FireBaseMyStorage.CallBack_UploadImg() {
             @Override
             public void urlReady(String url,Activity activity) {
-                Log.d("tfff", "Here line 150");
                 Item item = myItems.get(myItems.size() - 1);
-               item.setPicture(url);
-               myDB.addItem(myAuth.getCurrentUser().getUid(), item.getId(), item);
-               activity.finish();
+                item.setPicture(url);
+                myDB.addItem(myAuth.getCurrentUser().getUid(), item.getId(), item);
+                activity.finish();
             }
         };
 

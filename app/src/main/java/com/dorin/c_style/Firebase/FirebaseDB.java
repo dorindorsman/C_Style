@@ -146,7 +146,6 @@ public class FirebaseDB {
                     for (DataSnapshot child : snapshot.getChildren()) {
                         try {
                             Item item = child.getValue(Item.class);
-                            Log.d("tfff", item.getId());
                             items.add(item);
                         } catch (Exception ex) {
                         }

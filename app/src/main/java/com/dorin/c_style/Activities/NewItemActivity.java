@@ -101,7 +101,7 @@ public class NewItemActivity extends AppCompatActivity {
         categoryList = new ArrayList<String>();
         categoryList.add("Shirts");
         categoryList.add("T-Shirts");
-        categoryList.add("knitwear");
+        categoryList.add("Knitwear");
         categoryList.add("Pants");
         categoryList.add("Sweatshirts");
         categoryList.add("Coats");
@@ -173,7 +173,7 @@ public class NewItemActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (!newItem_TIET_Category.getText().toString().equals("")) {
-                    Toast.makeText(NewItemActivity.this, categoryPick+"", Toast.LENGTH_SHORT).show();
+                   // Toast.makeText(NewItemActivity.this, categoryPick+"", Toast.LENGTH_SHORT).show();
                     ViewDialog_List dialog = new ViewDialog_List();
 
                     switch (categoryPick) {
