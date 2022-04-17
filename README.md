@@ -34,6 +34,13 @@ With C-STYLE you will be able to easily organize your closet, create outfits wit
 
 ## Screen Gifs
 
+|Splash Screen|Login Screen|Log Out Screen|Sign UP Screen|
+|--|--|--|--|
+|<img src="https://media.giphy.com/media/AAOrgReKExiovScnlL/giphy.gif" alt="animated"/>||<img src="https://media.giphy.com/media/AAOrgReKExiovScnlL/giphy.gif" alt="animated"/>||<img src="https://media.giphy.com/media/AAOrgReKExiovScnlL/giphy.gif" alt="animated"/>||<img src="https://media.giphy.com/media/AAOrgReKExiovScnlL/giphy.gif" alt="animated"/>|
+|Splash Screen|Login Screen|Log Out Screen|Sign UP Screen|
+|<img src="https://media.giphy.com/media/k1KASi3xNivjjBSb4N/giphy.gif" alt="animated"/>|
+|<img src="https://media.giphy.com/media/k1KASi3xNivjjBSb4N/giphy.gif" alt="animated"/>|
+|<img src="https://media.giphy.com/media/k1KASi3xNivjjBSb4N/giphy.gif" alt="animated"/>|
 
 
 ## Future Plan 
