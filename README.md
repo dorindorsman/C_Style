@@ -26,18 +26,30 @@ With C-STYLE you will be able to easily organize your closet, create outfits wit
 ## :space_invader: Features
 
 - **Login and Sign-up** with any valid phone number
-- Chose/Change your **profile picture**
+- Choose your **profile picture**
 - Can easily add items to your closet by taking a **picture or using an existing photo in your phone**
 - Can easily enter item details: **color measure name category**
 - Easily manage your items by **categories**, with our friendly UI.
+- Easily manage your favorites items.
 - Can easily create outfits by pick items from your storage, with our friendly UI.
 
 ## Screen Gifs
 
-|Splash Screen|Login Screen|Log Out Screen|Sign UP Screen|
+|Splash Screen|Login Screen 1|Login Screen 2|Log Out Screen
 |--|--|--|--|
-|<img src="https://media.giphy.com/media/AAOrgReKExiovScnlL/giphy.gif" alt="animated"/>||<img src="https://media.giphy.com/media/AAOrgReKExiovScnlL/giphy.gif" alt="animated"/>||<img src="https://media.giphy.com/media/AAOrgReKExiovScnlL/giphy.gif" alt="animated"/>||<img src="https://media.giphy.com/media/AAOrgReKExiovScnlL/giphy.gif" alt="animated"/>|
-|Splash Screen|Login Screen|Log Out Screen|Sign UP Screen|
+|<img src="https://media.giphy.com/media/AAOrgReKExiovScnlL/giphy.gif" alt="animated"/>|<img src="https://media.giphy.com/media/zT3KtRSA8A2PImgkbt/giphy.gif" alt="animated"/>|<img src="https://media.giphy.com/media/pN35z8KALUiaPEM7oY/giphy.gif" alt="animated"/>|<img src="https://media.giphy.com/media/uVYEXYFWOF2qry9M9Q/giphy.gif" alt="animated"/>|
+
+</br>
+
+|Sign UP Screen 1|Sign UP Screen 2|Profile Screen|
+|--|--|--|
+<img src="https://media.giphy.com/media/zSkdCsm0LbcrPh5Z52/giphy.gif" alt="animated"/>|<img src="https://media.giphy.com/media/fPTB2sfXtmDjRuvIJZ/giphy.gif" alt="animated"/>|<img src="https://media.giphy.com/media/Fb0zzpvjfyfSriRcri/giphy.gif" alt="animated"/>|
+
+</br>
+
+
+|Add Item Screen|Fill Item Name Screen|Fill Item Category Screen|Fill Item Color Screen|
+|--|--|--|--|
 |<img src="https://media.giphy.com/media/k1KASi3xNivjjBSb4N/giphy.gif" alt="animated"/>|
 |<img src="https://media.giphy.com/media/k1KASi3xNivjjBSb4N/giphy.gif" alt="animated"/>|
 |<img src="https://media.giphy.com/media/k1KASi3xNivjjBSb4N/giphy.gif" alt="animated"/>|
