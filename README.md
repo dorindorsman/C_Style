@@ -18,7 +18,7 @@ With C-STYLE you will be able to easily organize your closet, create outfits wit
 ## :link: Menu:
 
 - [Features](https://github.com/dorindorsman/C_Style/blob/master/README.md#space_invader-features)</br>
-- [Screen Gifs](https://github.com/dorindorsman/C_Style/edit/master/README.md#screen-gifs)</br>
+- [Screen Gifs](https://github.com/dorindorsman/C_Style/blob/master/README.md#screen-gifs)</br>
 - [Future Plan](https://github.com/dorindorsman/C_Style/edit/master/README.md#future-plan)</br>
 - [Credits](https://github.com/dorindorsman/C_Style/edit/master/README.md#credits)</br>
 
