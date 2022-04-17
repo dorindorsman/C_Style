@@ -79,5 +79,5 @@ With C-STYLE you will be able to easily organize your closet, create outfits wit
 
 ## Credits
  create Logo Icon with https://create.vista.com/home/ </br>
- create gif with https://giphy.com/
+ create Gif with https://giphy.com/
 
