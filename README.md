@@ -48,6 +48,7 @@ With C-STYLE you will be able to easily organize your closet, create outfits wit
 
 </br>
 </br>
+</br>
 
 |Add Item Screen|Add Item Picture|Fill Item Name|Fill Item Category|
 |--|--|--|--|
@@ -55,15 +56,18 @@ With C-STYLE you will be able to easily organize your closet, create outfits wit
 
 </br>
 
-|Fill Item Size|Fill Item Color|Fill Item Favorite|Finish Add Item|
+|Fill Item Size|Fill Item Color|Fill Item Favorite|Save Item|
 |--|--|--|--|
 |<img src="https://media.giphy.com/media/Aj7wuQUemAag1lWVQL/giphy.gif" alt="animated"/>|<img src="https://media.giphy.com/media/JF8TEv3chrNxj25YLM/giphy.gif" alt="animated"/>|<img src="https://media.giphy.com/media/9XHl1WY5vSj29CtaOv/giphy.gif" alt="animated"/>|<img src="https://media.giphy.com/media/vW8FT7CCZMFAYjhTAi/giphy.gif" alt="animated"/>|
 
 </br>
 </br>
+</br>
 
-|Add Item Screen|Add Item Picture|Fill Item Name|Fill Item Category|Fill Item Color Screen|
-|--|--|--|--|--|
+|Add Outfit|Fill Outfit Name|Fill Outfit Items|Save Outfit|
+|--|--|--|--|
+|<img src="https://media.giphy.com/media/Xswc1E2RtgsUD03yvt/giphy.gif" alt="animated"/>|<img src="https://media.giphy.com/media/Vq2IPrRJdnHe9rl08v/giphy.gif" alt="animated"/>|<img src="https://media.giphy.com/media/mK7R7x5YMgeQQf0qws/giphy.gif" alt="animated"/>|<img src="https://media.giphy.com/media/kWb8Cpjstx5lKZ45Uy/giphy.gif" alt="animated"/>|
+
 
 
 ## Future Plan 
@@ -74,5 +78,6 @@ With C-STYLE you will be able to easily organize your closet, create outfits wit
 - Share your outfits with friends through a link in other apps
 
 ## Credits
-
+ create Logo Icon with https://create.vista.com/home/ </br>
+ create gif with https://giphy.com/
 
