@@ -28,7 +28,7 @@ With C-STYLE you will be able to easily organize your closet, create outfits wit
 - **Login and Sign-up** with any valid phone number
 - Choose your **profile picture**
 - Can easily add items to your closet by taking a **picture or using an existing photo in your phone**
-- Can easily enter item details: **color measure name category**
+- Can easily enter item details: **picture, name, category, size, color, favorite**
 - Easily manage your items by **categories**, with our friendly UI.
 - Easily manage your favorites items.
 - Can easily create outfits by pick items from your storage, with our friendly UI.
@@ -39,6 +39,7 @@ With C-STYLE you will be able to easily organize your closet, create outfits wit
 |--|--|--|--|
 |<img src="https://media.giphy.com/media/AAOrgReKExiovScnlL/giphy.gif" alt="animated"/>|<img src="https://media.giphy.com/media/zT3KtRSA8A2PImgkbt/giphy.gif" alt="animated"/>|<img src="https://media.giphy.com/media/pN35z8KALUiaPEM7oY/giphy.gif" alt="animated"/>|<img src="https://media.giphy.com/media/uVYEXYFWOF2qry9M9Q/giphy.gif" alt="animated"/>|
 
+
 </br>
 
 |Sign UP Screen 1|Sign UP Screen 2|Profile Screen|
@@ -46,17 +47,27 @@ With C-STYLE you will be able to easily organize your closet, create outfits wit
 <img src="https://media.giphy.com/media/zSkdCsm0LbcrPh5Z52/giphy.gif" alt="animated"/>|<img src="https://media.giphy.com/media/fPTB2sfXtmDjRuvIJZ/giphy.gif" alt="animated"/>|<img src="https://media.giphy.com/media/Fb0zzpvjfyfSriRcri/giphy.gif" alt="animated"/>|
 
 </br>
+</br>
 
-
-|Add Item Screen|Fill Item Name Screen|Fill Item Category Screen|Fill Item Color Screen|
+|Add Item Screen|Add Item Picture|Fill Item Name|Fill Item Category|
 |--|--|--|--|
-|<img src="https://media.giphy.com/media/k1KASi3xNivjjBSb4N/giphy.gif" alt="animated"/>|
-|<img src="https://media.giphy.com/media/k1KASi3xNivjjBSb4N/giphy.gif" alt="animated"/>|
-|<img src="https://media.giphy.com/media/k1KASi3xNivjjBSb4N/giphy.gif" alt="animated"/>|
+|<img src="https://media.giphy.com/media/SGw6ra74SxFC7aFHMJ/giphy.gif" alt="animated"/>|<img src="https://media.giphy.com/media/0WL7LxNYx0GR2EgtxA/giphy.gif" alt="animated"/>|<img src="https://media.giphy.com/media/LPgooRJqdWsM9qGWcf/giphy.gif" alt="animated"/>|<img src="https://media.giphy.com/media/tr4Boo2XhJq6Rp247r/giphy.gif" alt="animated"/>|
+
+</br>
+
+|Fill Item Size|Fill Item Color|Fill Item Favorite|Finish Add Item|
+|--|--|--|--|
+|<img src="https://media.giphy.com/media/Aj7wuQUemAag1lWVQL/giphy.gif" alt="animated"/>|<img src="https://media.giphy.com/media/JF8TEv3chrNxj25YLM/giphy.gif" alt="animated"/>|<img src="https://media.giphy.com/media/9XHl1WY5vSj29CtaOv/giphy.gif" alt="animated"/>|<img src="https://media.giphy.com/media/vW8FT7CCZMFAYjhTAi/giphy.gif" alt="animated"/>|
+
+</br>
+</br>
+
+|Add Item Screen|Add Item Picture|Fill Item Name|Fill Item Category|Fill Item Color Screen|
+|--|--|--|--|--|
 
 
 ## Future Plan 
-
+- Edit profile
 - Delete items
 - Delete outfits
 - Edit items/outfits details
