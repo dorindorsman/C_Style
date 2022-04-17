@@ -37,7 +37,7 @@ With C-STYLE you will be able to easily organize your closet, create outfits wit
 - [Login](https://github.com/dorindorsman/C_Style#calling-login)</br>
 - [Sign Up](https://github.com/dorindorsman/C_Style/blob/master/README.md#pencil2-sign-up)</br>
 - [Items](https://github.com/dorindorsman/C_Style/blob/master/README.md#shirt-items)</br>
-- [Outfits](https://github.com/dorindorsman/C_Style/edit/master/README.md#outfits)</br>
+- [Outfits](https://github.com/dorindorsman/C_Style/blob/master/README.md#walking-outfits)</br>
 
 ### :calling: Login
 
