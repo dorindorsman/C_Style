@@ -1,7 +1,8 @@
 <p align="center"><img src="app/src/main/res/drawable/img_icon_cstyle_brown.png" height="700" width="700"></p>
 <br/>
-
+<h3 align="center">Android App</h3>
 <h1 align="center">Welcome To C-STYLE!</h1>
+
 
 ## :information_source: About 
 - Your closet is full of multiple clothes, but you never know what to wear ? 
