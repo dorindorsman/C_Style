@@ -34,9 +34,8 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        findviews();
+        findViews();
         initButton();
-
 
     }
 
@@ -53,11 +52,10 @@ public class LoginActivity extends AppCompatActivity {
                 signInLauncher.launch(signInIntent);
             }
         });
-
     }
 
-    private void findviews() {
-        login_BTN_Start=findViewById(R.id.login_BTN_Start);
+    private void findViews() {
+        login_BTN_Start = findViewById(R.id.login_BTN_Start);
     }
 
 
@@ -77,15 +75,9 @@ public class LoginActivity extends AppCompatActivity {
         if (result.getResultCode() == RESULT_OK) {
             // Successfully signed in
             FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-
             FirebaseDB firebaseDB = FirebaseDB.getInstance();
             firebaseDB.setCallback_checkUserExistence(callback_checkUserExistence);
             firebaseDB.hasProfile(user.getUid());
-
-
-
-
-
         } else {
             // Sign in failed. If response is null the user canceled the
             // sign-in flow using the back button. Otherwise check
@@ -112,7 +104,6 @@ public class LoginActivity extends AppCompatActivity {
             openActivity(SignUpActivity.class);
         }
     };
-
 
 
 }

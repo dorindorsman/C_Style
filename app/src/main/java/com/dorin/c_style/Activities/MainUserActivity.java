@@ -53,32 +53,28 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class MainUserActivity extends AppCompatActivity {
 
-      public static final int PROFILE = 0, CLOSET = 1, OUTFITS=2, FAVORITES=3,LOGOUT=4;
-
-      private DrawerLayout panel_DrawerLayout;
-      private MaterialTextView panel_TextTitle;
-
-
-
-      private NavigationView panel_TopNavigationView;
-      private CircleImageView panel_Menu_IMG_profile;
-      private MaterialTextView panel_Menu_Name_profile;
-      private BottomNavigationView bottomNavigationView;
-      private FloatingActionButton panel_BTN_Add;
-      private ExtendedFloatingActionButton panel_BTN_AddItem;
-      private ExtendedFloatingActionButton panel_BTN_AddOutfit;
-      private LinearLayout panel_Layout_addButtons;
+    private DrawerLayout panel_DrawerLayout;
+    private MaterialTextView panel_TextTitle;
+    private NavigationView panel_TopNavigationView;
+    private CircleImageView panel_Menu_IMG_profile;
+    private MaterialTextView panel_Menu_Name_profile;
+    private BottomNavigationView bottomNavigationView;
+    private FloatingActionButton panel_BTN_Add;
+    private ExtendedFloatingActionButton panel_BTN_AddItem;
+    private ExtendedFloatingActionButton panel_BTN_AddOutfit;
+    private LinearLayout panel_Layout_addButtons;
 
 
-      private FragmentManager fragmentManager;
-      private FragmentTransaction fragmentTransaction;
+    public static final int PROFILE = 0, CLOSET = 1, OUTFITS = 2, FAVORITES = 3, LOGOUT = 4;
+    private FragmentManager fragmentManager;
+    private FragmentTransaction fragmentTransaction;
+    private Fragment[] panel_fragments;
 
-      private Fragment[] panel_fragments;
 
-      private final int SIZE=5;
-      private boolean isFABOpen=false;
+    private final int SIZE = 5;
+    private boolean isFABOpen = false;
 
-      private UserDataManager userDataManager;
+    private UserDataManager userDataManager;
 
 
     @Override
@@ -100,12 +96,12 @@ public class MainUserActivity extends AppCompatActivity {
     private void loadData() {
         User user = userDataManager.getMyUser();
         Glide.with(this).load(user.getUserPic()).into(panel_Menu_IMG_profile);
-        panel_Menu_Name_profile.setText(user.getUserFirstName()+" "+user.getUserLastName());
+        panel_Menu_Name_profile.setText(user.getUserFirstName() + " " + user.getUserLastName());
     }
 
 
     private void findViews() {
-        panel_DrawerLayout=findViewById(R.id.panel_DrawerLayout);
+        panel_DrawerLayout = findViewById(R.id.panel_DrawerLayout);
         findViewById(R.id.panel_IMG_Menu).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -114,22 +110,22 @@ public class MainUserActivity extends AppCompatActivity {
         });
 
 
-        panel_TextTitle=findViewById(R.id.panel_TextTitle);
+        panel_TextTitle = findViewById(R.id.panel_TextTitle);
 
 
-        bottomNavigationView=findViewById(R.id.panel_BottomNavigationView);
+        bottomNavigationView = findViewById(R.id.panel_BottomNavigationView);
         bottomNavigationView.setBackground(null);
 
-        panel_BTN_Add=findViewById(R.id.panel_BTN_Add);
+        panel_BTN_Add = findViewById(R.id.panel_BTN_Add);
         panel_BTN_AddItem = findViewById(R.id.panel_BTN_AddItem);
         panel_BTN_AddOutfit = findViewById(R.id.panel_BTN_AddOutfit);
-        panel_Layout_addButtons=findViewById(R.id.panel_Layout_addButtons);
+        panel_Layout_addButtons = findViewById(R.id.panel_Layout_addButtons);
 
-        panel_TopNavigationView= findViewById(R.id.panel_TopNavigationView);
+        panel_TopNavigationView = findViewById(R.id.panel_TopNavigationView);
         panel_TopNavigationView.setItemIconTintList(null);
-        View headerMenuProfile=panel_TopNavigationView.getHeaderView(0);
-        panel_Menu_IMG_profile=(CircleImageView) headerMenuProfile.findViewById(R.id.panel_Menu_IMG_profile);
-        panel_Menu_Name_profile=(MaterialTextView) headerMenuProfile.findViewById(R.id.panel_Menu_Name_profile);
+        View headerMenuProfile = panel_TopNavigationView.getHeaderView(0);
+        panel_Menu_IMG_profile = (CircleImageView) headerMenuProfile.findViewById(R.id.panel_Menu_IMG_profile);
+        panel_Menu_Name_profile = (MaterialTextView) headerMenuProfile.findViewById(R.id.panel_Menu_Name_profile);
 
     }
 
@@ -159,7 +155,7 @@ public class MainUserActivity extends AppCompatActivity {
                         new int[]{android.R.attr.state_focused},
                         new int[]{android.R.attr.state_pressed}
                 },
-                new int []{
+                new int[]{
                         Color.parseColor("#d8a673"),
                         navDefaultTextColor,
                         navDefaultTextColor,
@@ -177,7 +173,7 @@ public class MainUserActivity extends AppCompatActivity {
                         new int[]{android.R.attr.state_focused},
                         new int[]{android.R.attr.state_pressed}
                 },
-                new int[] {
+                new int[]{
                         Color.parseColor("#d8a673"),
                         navDefaultIconColor,
                         navDefaultIconColor,
@@ -189,21 +185,20 @@ public class MainUserActivity extends AppCompatActivity {
         panel_TopNavigationView.setItemTextColor(navMenuTextList);
         panel_TopNavigationView.setItemIconTintList(navMenuIconList);
 
-
     }
 
 
-    private void showFABMenu(){
-        isFABOpen=true;
-        TranslateAnimation anim = new TranslateAnimation(0,0,panel_Layout_addButtons.getHeight()+1000,0);
+    private void showFABMenu() {
+        isFABOpen = true;
+        TranslateAnimation anim = new TranslateAnimation(0, 0, panel_Layout_addButtons.getHeight() + 1000, 0);
         anim.setDuration(500);
         anim.setFillAfter(true);
         panel_Layout_addButtons.startAnimation(anim);
     }
 
-    private void closeFABMenu(){
-        isFABOpen=false;
-        TranslateAnimation anim = new TranslateAnimation(0,0,0,panel_Layout_addButtons.getHeight()+1000);
+    private void closeFABMenu() {
+        isFABOpen = false;
+        TranslateAnimation anim = new TranslateAnimation(0, 0, 0, panel_Layout_addButtons.getHeight() + 1000);
         anim.setDuration(500);
         anim.setFillAfter(true);
         panel_Layout_addButtons.startAnimation(anim);
@@ -216,25 +211,25 @@ public class MainUserActivity extends AppCompatActivity {
         panel_BTN_Add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                        if(!isFABOpen){
-                            showFABMenu();
-                        }else{
-                            closeFABMenu();
-                        }
+                if (!isFABOpen) {
+                    showFABMenu();
+                } else {
+                    closeFABMenu();
+                }
             }
         });
 
         panel_BTN_AddItem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainUserActivity.this,NewItemActivity.class));
+                startActivity(new Intent(MainUserActivity.this, NewItemActivity.class));
             }
         });
 
         panel_BTN_AddOutfit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainUserActivity.this,NewOutfitActivity.class));
+                startActivity(new Intent(MainUserActivity.this, NewOutfitActivity.class));
             }
         });
 
@@ -242,7 +237,7 @@ public class MainUserActivity extends AppCompatActivity {
         bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                switch (item.getItemId()){
+                switch (item.getItemId()) {
                     case R.id.closest:
                         panel_TextTitle.setText(getString(R.string.closet));
                         replaceFragments(panel_fragments[CLOSET]);
@@ -305,11 +300,10 @@ public class MainUserActivity extends AppCompatActivity {
         });
 
 
-
     }
 
 
-    private void replaceFragments(Fragment fragment){
+    private void replaceFragments(Fragment fragment) {
         fragmentManager = getSupportFragmentManager();
         fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.panel_Fragment, fragment, null);

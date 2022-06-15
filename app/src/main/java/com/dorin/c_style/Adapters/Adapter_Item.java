@@ -18,6 +18,7 @@ import com.google.android.material.textfield.TextInputLayout;
 import com.google.android.material.textview.MaterialTextView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 
 public class Adapter_Item extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
@@ -72,6 +73,11 @@ public class Adapter_Item extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
         } else  {
             itemViewHolder.item_IMG_favorite.setImageResource(R.drawable.ic_heart_empty);
         }
+    }
+
+    public void setFilteredList(ArrayList<Item> filteredList){
+        this.items = filteredList;
+        notifyDataSetChanged();
     }
 
     @Override

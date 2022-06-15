@@ -1,17 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Fregments.FavoritesFragment">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/favorites_LST_Clothes"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:paddingTop="20dp"
-        android:layout_marginBottom="80dp"
-       />
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.SearchView
+            android:id="@+id/favorites_search"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            app:iconifiedByDefault="false"
+            app:queryHint="Search...">
+
+        </androidx.appcompat.widget.SearchView>
+
+        <CheckBox
+            android:id="@+id/favorites_checkBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:layout_below="@+id/favorites_search"
+            android:text="All" />
+
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/favorites_LST_Clothes"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/favorites_checkBox"
+            android:layout_marginBottom="80dp"
+            android:paddingTop="10dp" />
+    </RelativeLayout>
 
 
 </FrameLayout>
