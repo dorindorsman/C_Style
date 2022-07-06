@@ -4,6 +4,9 @@
 <h1 align="center">Welcome To C-STYLE!</h1>
 
 
+[![Watch the video](https://i.imgur.com/vKb2F1B.png)](https://youtu.be/vt5fpE0bzSY)
+
+
 ## :information_source: About 
 - Your closet is full of multiple clothes, but you never know what to wear ? 
 - You lose hours every day messing up everything looking for the right outfit ? 
